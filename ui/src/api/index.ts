@@ -2,4 +2,8 @@
 // Place your axios instances, API functions, and endpoint constants here.
 
 // Base URL for all API requests
-export const BASE_URL = 'https://doggo-r1vk.onrender.com/doggo-api';
+export const BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  (typeof window !== 'undefined' && window.location.hostname === 'localhost'
+    ? 'http://localhost:3000'
+    : 'https://doggo-r1vk.onrender.com/doggo-api');

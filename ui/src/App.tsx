@@ -7,6 +7,7 @@ import VendorList from './components/VendorList'
 import VendorProfilePage from './pages/vendorPage'
 import Assistant from './components/Assistant'
 import woofSound from './assets/woof.wav';
+import VendorPanel from './pages/VendorPanel';
 
 function HomePage() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null)
@@ -44,14 +45,15 @@ function HomePage() {
 function App() {
   return (
     <div className="app-root w-full px-4 sm:px-8">
-      <Header />
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/vendor/:id" element={<VendorProfilePage />} />
+          <Route path="/vendor-panel" element={<VendorPanel />} />
         </Routes>
+        <Assistant />
       </Router>
-      <Assistant />
     </div>
   )
 }
