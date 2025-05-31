@@ -179,3 +179,17 @@ As a user, I want the frontend to fetch and display the list of vendors for a sp
 - The API call logic should be placed in `api/vendors.ts`.
 
 ---
+
+## 12. AI Assistant for Vendor Discovery
+
+**User Story:**
+As a pet owner, I want to interact with an AI assistant that can understand my requirements (e.g., service type, location, price range, pet type) and recommend the most suitable pet service vendors, so that I can quickly find the best match without manually searching or filtering.
+
+**Acceptance Criteria:**
+
+- A chat or assistant UI is available on the homepage.
+- The user can type or select their requirements (e.g., "I need a dog groomer in Bangalore under ₹1000").
+- The AI assistant processes the input and suggests the best-matching vendor(s) from the database.
+- The assistant can clarify or ask follow-up questions if the user's request is ambiguous.
+- Clicking a suggested vendor opens their profile page.
+- The assistant is accessible and non-intrusive, with a modern, friendly UI.

@@ -69,7 +69,13 @@ const VendorList = ({ selectedCity, searchQuery }: VendorListProps) => {
     ? vendorsFiltered.filter(vendor => vendor.services_provided.includes(selectedCategory))
     : vendorsFiltered
 
-  if (loading) return <div className="text-gray-500 my-4">Loading vendors...</div>
+  if (loading) {
+    return (
+      <div className="flex justify-center my-8">
+        <div className="spinner" aria-label="Loading" />
+      </div>
+    );
+  }
   if (error) return <div className="text-red-500 my-4">{error}</div>
   if (!filteredVendors.length) return <div className="text-gray-400 my-4">No vendors found.</div>
 

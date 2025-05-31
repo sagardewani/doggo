@@ -28,6 +28,14 @@ const CitySelector = ({ selectedCity, onSelectCity, setSearchQuery }: CitySelect
       .finally(() => setLoading(false))
   }, [])
 
+  if (loading) {
+    return (
+      <div className="flex justify-center my-8">
+        <div className="spinner" aria-label="Loading" />
+      </div>
+    )
+  }
+
   return (
     <div className="flex justify-between mx-auto w-full">
       <div className="flex flex-col items-start gap-2 my-4 bg-white shadow rounded-lg p-4">
@@ -43,7 +51,6 @@ const CitySelector = ({ selectedCity, onSelectCity, setSearchQuery }: CitySelect
             <option key={city.name} value={city.name}>{city.name}</option>
           ))}
         </select>
-        {loading && <span className="text-xs text-gray-400">Loading cities...</span>}
         {error && <span className="text-xs text-red-500">{error}</span>}
       </div>
       <div className="flex flex-col items-start gap-2 my-4 bg-white shadow rounded-lg p-4 w-full">
