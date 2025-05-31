@@ -1,34 +1,5 @@
 // api/vendors.ts
 import { BASE_URL } from './index'
-/**
- * Response example:
- {
-    "id": "MUM001",
-    "city": "Mumbai",
-    "name": "Bombay Paws Clinic",
-    "category": "Veterinarian",
-    "description": "Comprehensive medical care for your beloved pets, from routine check-ups to advanced surgeries.",
-    "locality": "Bandra West",
-    "rating": 4.8,
-    "price_range": "₹₹₹",
-    "price_range_value": {
-        "min": 2000,
-        "max": 5000
-    },
-    "phone": "tel:+919876500001",
-    "whatsapp": "https://wa.me/919876500001",
-    "address": "101, Linking Road, Bandra West, Mumbai, Maharashtra 400050",
-    "map_link": "https://maps.app.goo.gl/MumbaiVet1",
-    "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Clinic+Mumbai",
-    "services_provided": [
-        "Consultation",
-        "Vaccination",
-        "Surgery",
-        "Dental Care",
-        "Diagnostics"
-    ]
-} 
-*/
 
 export interface Vendor {
   id: string

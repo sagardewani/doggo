@@ -28,10 +28,16 @@ const VendorCard = ({
   phone,
   services_provided,
   price_range,
+  price_range_value,
   whatsapp_link,
   whatsapp,
   map_link,
 }: VendorCardProps) => {
+  // Format price range value if available
+  const formattedPriceRange = price_range_value
+    ? `₹${price_range_value.min} - ₹${price_range_value.max}`
+    : price_range;
+
   return (
     <div className="flex flex-col sm:flex-row items-center gap-4 bg-white shadow rounded-lg p-4 my-4 w-full">
       <img
@@ -54,7 +60,7 @@ const VendorCard = ({
           ))}
         </div>
         <div className="flex items-center gap-4 text-sm mt-2">
-          <span className="font-semibold text-gray-700">{price_range}</span>
+          <span className="font-semibold text-gray-700">{formattedPriceRange}</span>
         </div>
         <div className="flex gap-3 mt-3">
           <a href={phone} className="flex items-center gap-1 px-3 py-1 bg-yellow-200 text-yellow-800 rounded hover:bg-yellow-300 transition" title="Call">
