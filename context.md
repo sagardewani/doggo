@@ -67,9 +67,55 @@ Each vendor includes:
 - Address (address)
 - Phone number (phone)
 - List of services provided (services_provided)
-- Price range (price_range)
+- Price range (price_range) (e.g., "₹300 - ₹1500")
 - Description (description)
 - WhatsApp chat link (whatsapp_link)
 - Map link for directions (map_link)
 - Profile photo URL (profile_photo)
 - Category (category)
+
+**Example Response:**
+
+```
+[
+  {
+    "id": "vendor_001",
+    "name": "Paws & Claws Grooming",
+    "locality": "Malviya Nagar",
+    "address": "Malviya Nagar, Jaipur",
+    "phone": "+91-9876543210",
+    "services_provided": ["Grooming", "Pet Food"],
+    "price_range": "₹300 - ₹1500",
+    "description": "Professional grooming for all breeds.",
+    "whatsapp_link": "https://wa.me/919876543210",
+    "map_link": "https://maps.google.com/?q=Malviya+Nagar+Jaipur",
+    "profile_photo": "https://example.com/photos/pawsclaws.jpg",
+    "category": "Grooming"
+  },
+  {
+    "id": "vendor_002",
+    "name": "Happy Tails Vet Clinic",
+    "locality": "Satellite",
+    "address": "Satellite, Ahmedabad",
+    "phone": "+91-9123456789",
+    "services_provided": ["Vet"],
+    "price_range": "₹300 - ₹1500",
+    "description": "24/7 veterinary care.",
+    "whatsapp_link": "https://wa.me/919123456789",
+    "map_link": "https://maps.google.com/?q=Satellite+Ahmedabad",
+    "profile_photo": "https://example.com/photos/happytails.jpg",
+    "category": "Vet"
+  }
+]
+```
+
+---
+
+### 3. **GET /vendors/:city**
+
+Returns a list of all vendors in the selected city.
+
+- **Path Parameter:** `city` (e.g., `/vendors/Jaipur`)
+- **Response:** Same structure as **GET /vendors**, but filtered by the specified city.
+
+---
