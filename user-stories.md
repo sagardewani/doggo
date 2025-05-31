@@ -135,6 +135,7 @@ As a user, I want the frontend to fetch and display the list of all cities from 
 - The frontend uses the fetch method to call the GET /cities API.
 - User can view the list of all available cities.
 - Loading and error states are handled gracefully.
+- The API call logic should be placed in `api/cities.ts`.
 
 ---
 
@@ -147,6 +148,7 @@ As a user, I want the frontend to fetch and display the list of all vendors from
 - The frontend uses the fetch method to call the GET /vendors API.
 - User can view the list of all vendors.
 - Loading and error states are handled gracefully.
+- The API call logic should be placed in `api/vendors.ts`.
 
 ---
 
@@ -159,5 +161,6 @@ As a user, I want the frontend to fetch and display the list of vendors for a sp
 - The frontend uses the fetch method to call the GET /vendors/:city API.
 - User can view the list of vendors filtered by the selected city.
 - Loading and error states are handled gracefully.
+- The API call logic should be placed in `api/vendors.ts`.
 
 ---
