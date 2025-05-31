@@ -1,242 +1,131 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { fetchVendors, type Vendor } from "../api/vendors";
 import { FiPhone, FiMapPin, FiStar, FiCheckCircle } from "react-icons/fi";
 import { BsWhatsapp } from "react-icons/bs";
 
-const fetchVendorById = async (id) => {
-  // Simulate fetching full vendor data by ID, 
-  // here returning static for demo purposes
-  return new Promise((res) => {
-    setTimeout(() => {
-      res({
-        id: "MUM001",
-        name: "Bombay Paws Clinic",
-        category: "Veterinarian",
-        description:
-          "Comprehensive medical care for your beloved pets, from routine check-ups to advanced surgeries.",
-        locality: "Bandra West",
-        rating: 4.8,
-        price_range: "₹₹₹",
-        price_range_value: {
-          min: 2000,
-          max: 5000,
-        },
-        phone: "tel:+919876500001",
-        whatsapp: "https://wa.me/919876500001",
-        address:
-          "101, Linking Road, Bandra West, Mumbai, Maharashtra 400050",
-        map_link: "https://maps.app.goo.gl/MumbaiVet1",
-        profile_photo:
-          "https://placehold.co/800x400/A78BFA/ffffff?text=Vet+Clinic+Mumbai",
-        services_provided: [
-          "Consultation",
-          "Vaccination",
-          "Surgery",
-          "Dental Care",
-          "Diagnostics",
-        ],
-      });
-    }, 800);
-  });
-};
+const VendorProfilePage = () => {
+  const { id } = useParams<{ id: string }>();
+  const [vendor, setVendor] = useState<Vendor | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-const StarRating = ({rating}) => {
-  console.log("Rendering StarRating with rating:", rating);
-  const stars = Array(5)
-    .fill(0)
-    .map((_, i) => {
-      const filled = i + 1 <= Math.floor(rating);
-      const half = rating % 1 >= 0.5 && i + 1 === Math.ceil(rating);
-      return (
-        <FiStar
-          key={i}
-          className={`inline-block ${
-            filled ? "text-yellow-400" : half ? "text-yellow-300" : "text-gray-300"
-          }`}
-          aria-hidden="true"
-        />
-      );
-    });
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+    fetchVendors()
+      .then((vendors: Vendor[]) => {
+        const found = vendors.find((v) => v.id === id) || null;
+        setVendor(found);
+        if (!found) setError("Vendor not found");
+      })
+      .catch(() => setError("Failed to load vendor"))
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading)
+    return (
+      <div className="text-gray-500 my-8">Loading vendor profile...</div>
+    );
+  if (error) return <div className="text-red-500 my-8">{error}</div>;
+  if (!vendor) return null;
+
   return (
-    <div aria-label={`Rating: ${rating} out of 5 stars`} role="img">
-      {stars}
-      <span className="sr-only">{rating} stars</span>
+    <div className="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-6 my-8 animate-fade-in">
+      <img
+        src={vendor.profile_photo}
+        alt={vendor.name}
+        className="w-full h-56 object-cover rounded-xl mb-4 shadow-md transition-transform duration-300 hover:scale-105"
+      />
+      <h2 className="text-3xl font-extrabold text-yellow-700 mb-2 tracking-tight animate-fade-in-up">
+        {vendor.name}
+      </h2>
+      <div className="flex items-center gap-3 mb-2 animate-fade-in-up delay-100">
+        <span className="text-yellow-600 font-semibold text-lg">
+          {vendor.category}
+        </span>
+        {vendor.rating && (
+          <span className="flex items-center gap-1 text-yellow-500 font-medium">
+            <FiStar /> {vendor.rating}
+          </span>
+        )}
+      </div>
+      <div className="text-gray-600 mb-4 animate-fade-in-up delay-200">
+        {vendor.description}
+      </div>
+      <div className="flex flex-wrap gap-2 mb-6 animate-fade-in-up delay-300">
+        {vendor.services_provided.map((service) => (
+          <span
+            key={service}
+            className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-sm animate-pop-in"
+          >
+            <FiCheckCircle /> {service}
+          </span>
+        ))}
+      </div>
+      <div className="flex flex-col gap-2 mb-6 animate-fade-in-up delay-400">
+        <div className="flex items-center gap-2 text-gray-700">
+          <FiMapPin />{" "}
+          <span className="font-medium">{vendor.address}</span>
+        </div>
+        <div className="flex items-center gap-2 text-gray-700">
+          Locality:{" "}
+          <span className="font-medium">{vendor.locality}</span>
+        </div>
+        <div className="flex items-center gap-2 text-gray-700">
+          City: <span className="font-medium">{vendor.city}</span>
+        </div>
+        <div className="flex items-center gap-2 text-gray-700">
+          Price Range:{" "}
+          <span className="font-medium">
+            {vendor.price_range_value
+              ? `₹${vendor.price_range_value.min} - ₹${vendor.price_range_value.max}`
+              : vendor.price_range}
+          </span>
+        </div>
+      </div>
+      <div className="flex flex-wrap gap-4 mt-4 animate-fade-in-up delay-500">
+        <a
+          href={vendor.phone}
+          className="flex items-center gap-2 px-4 py-2 bg-yellow-200 text-yellow-800 rounded-lg hover:bg-yellow-300 transition-all duration-200 shadow-sm font-semibold"
+          title="Call"
+        >
+          <FiPhone /> Call
+        </a>
+        <a
+          href={vendor.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition-all duration-200 shadow-sm font-semibold"
+          title="WhatsApp"
+        >
+          <BsWhatsapp /> WhatsApp
+        </a>
+        <a
+          href={vendor.map_link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200 transition-all duration-200 shadow-sm font-semibold"
+          title="Directions"
+        >
+          <FiMapPin /> Directions
+        </a>
+      </div>
+      <style>{`
+        .animate-fade-in { animation: fadeIn 0.7s ease; }
+        .animate-fade-in-up { animation: fadeInUp 0.7s cubic-bezier(.39,.575,.565,1) both; }
+        .animate-pop-in { animation: popIn 0.4s cubic-bezier(.39,.575,.565,1) both; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes popIn { 0% { opacity: 0; transform: scale(0.8); } 80% { opacity: 1; transform: scale(1.05); } 100% { opacity: 1; transform: scale(1); } }
+      `}</style>
     </div>
   );
 };
 
-export default function VendorProfilePage({ vendor: initialVendor, vendorId }) {
-  const [vendor, setVendor] = useState(initialVendor || null);
-  const [loading, setLoading] = useState(!initialVendor);
-
-  useEffect(() => {
-    if (!vendor && vendorId) {
-      setLoading(true);
-      fetchVendorById(vendorId)
-        .then((data) => {
-          setVendor(data);
-          setLoading(false);
-        })
-        .catch(() => setLoading(false));
-    }
-  }, [vendor, vendorId]);
-
-  if (loading)
-    return (
-      <main
-        role="main"
-        className="flex items-center justify-center min-h-screen bg-gray-50"
-        aria-busy="true"
-        aria-live="polite"
-      >
-        <p className="text-gray-500 text-lg animate-pulse">Loading vendor details...</p>
-      </main>
-    );
-
-  if (!vendor)
-    return (
-      <main
-        role="main"
-        className="flex items-center justify-center min-h-screen bg-gray-50 p-4"
-      >
-        <p className="text-red-500 text-lg">Vendor details not found.</p>
-      </main>
-    );
-
-  return (
-    <main
-      role="main"
-      className="max-w-5xl mx-auto bg-white shadow-md rounded-lg overflow-hidden my-6"
-    >
-      {/* Banner */}
-      <section
-        className="relative w-full h-60 sm:h-96 bg-gray-200 overflow-hidden animate-fadeIn"
-        aria-label={`Profile photo of ${vendor.name}`}
-      >
-        <img
-          src={vendor.profile_photo}
-          alt={`Profile of ${vendor.name}`}
-          className="object-cover w-full h-full"
-          loading="lazy"
-        />
-      </section>
-
-      {/* Info Section */}
-      <section className="p-6 sm:p-10 space-y-6 animate-slideUp">
-        {/* Header: Name, Category, Rating */}
-        <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 className="text-3xl font-extrabold text-gray-900">{vendor.name}</h1>
-            <p className="text-indigo-600 font-semibold mt-1">{vendor.category}</p>
-          </div>
-          <div className="flex items-center mt-3 sm:mt-0 space-x-2">
-            {/* <StarRating rating={vendor.rating} /> */}
-            </div>
-        </header>
-
-        {/* Description */}
-        <section aria-label="Vendor description">
-          <p className="text-gray-700 leading-relaxed">{vendor.description}</p>
-        </section>
-
-        {/* Services Provided */}
-       <section aria-label="List of services provided">
-  <h2 className="text-xl font-semibold text-gray-900 mb-3">Services Provided</h2>
-  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-    {vendor.services_provided.map((service) => (
-      <div
-        key={service}
-        className="flex items-center text-gray-800"
-      >
-        <FiCheckCircle className="text-green-500 mr-2" aria-hidden="true" />
-        <span className="text-sm m-2">{service}</span>
-      </div>
-    ))}
-  </div>
-</section>
-
-        {/* Location and Pricing */}
-        <section aria-label="Vendor location and pricing" className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-3">Location</h2>
-            <address className="not-italic text-gray-700 space-y-1">
-              <p>
-                <FiMapPin className="inline mr-1 text-indigo-600" aria-hidden="true" />
-                <strong>{vendor.locality}</strong>
-              </p>
-              <p>{vendor.address}</p>
-              <p>
-                <a
-                  href={vendor.map_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-indigo-600 hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                  aria-label={`Open location of ${vendor.name} on Google Maps`}
-                >
-                  View on Google Maps
-                </a>
-              </p>
-            </address>
-          </div>
-          <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-3">Price Range</h2>
-            <p className="text-gray-700">
-              <span className="text-indigo-600 font-bold text-lg">{vendor.price_range}</span>
-              {" "}
-              (₹{vendor.price_range_value.min.toLocaleString()} - ₹{vendor.price_range_value.max.toLocaleString()})
-            </p>
-          </div>
-        </section>
-
-        {/* Contact */}
-        <section aria-label="Contact information" className="flex flex-col sm:flex-row sm:items-center sm:space-x-6 space-y-4 sm:space-y-0">
-          <a
-            href={vendor.phone}
-            className="flex items-center justify-center px-5 py-3 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            aria-label={`Call ${vendor.name}`}
-          >
-            <FiPhone className="mr-2" aria-hidden="true" />
-            Call
-          </a>
-          <a
-            href={vendor.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center px-5 py-3 bg-green-500 text-white rounded-md shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
-            aria-label={`Chat with ${vendor.name} on WhatsApp`}
-          >
-            <BsWhatsapp className="mr-2" aria-hidden="true" />
-            WhatsApp
-          </a>
-        </section>
-      </section>
-
-      {/* Animations using Tailwind's built-in utilities with small custom CSS */}
-      <style jsx>{`
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease forwards;
-        }
-        .animate-slideUp {
-          animation: slideUp 0.6s ease forwards;
-        }
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
-    </main>
-  );
-}
+export default VendorProfilePage;

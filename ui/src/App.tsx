@@ -4,6 +4,7 @@ import CitySelector from './components/CitySelector'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import VendorList from './components/VendorList'
+import VendorProfilePage from './pages/vendorPage'
 
 function HomePage() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null)
@@ -17,10 +18,6 @@ function HomePage() {
   )
 }
 
-function VendorProfile() {
-  return <div>{/* Vendor profile content will go here */}</div>
-}
-
 function App() {
   return (
     <div className="app-root w-full px-4 sm:px-8">
@@ -28,7 +25,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/vendor/:id" element={<VendorProfile />} />
+          <Route path="/vendor/:id" element={<VendorProfilePage />} />
         </Routes>
       </Router>
     </div>
