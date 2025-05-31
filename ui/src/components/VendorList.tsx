@@ -4,12 +4,29 @@ import VendorCard from './VendorCard'
 
 interface VendorListProps {
   selectedCity: string | null
+  searchQuery: string;
 }
 
-const VendorList = ({ selectedCity }: VendorListProps) => {
+const VendorList = ({ selectedCity, searchQuery }: VendorListProps) => {
   const [vendors, setVendors] = useState<Vendor[]>([])
+  const [vendorsFiltered, setVendorsFiltered] = useState<Vendor[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (searchQuery) {
+      const filtered = vendors.filter(vendor =>
+        vendor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        vendor.locality.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        vendor.services_provided.some(service =>
+          service.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      )
+      setVendorsFiltered(filtered)
+    } else {
+      setVendorsFiltered(vendors)
+    }
+  }, [searchQuery, vendors])
 
   useEffect(() => {
     setLoading(true)
@@ -22,10 +39,12 @@ const VendorList = ({ selectedCity }: VendorListProps) => {
         } else {
           data = await fetchVendors()
         }
-        setVendors(data)
+        setVendors(data);
+        setVendorsFiltered(data);
       } catch {
         setError('Failed to load vendors')
-        setVendors([])
+        setVendors([]);
+        setVendorsFiltered([]);
       } finally {
         setLoading(false)
       }
@@ -39,7 +58,7 @@ const VendorList = ({ selectedCity }: VendorListProps) => {
 
   return (
     <div className="flex flex-col gap-4">
-      {vendors.map(vendor => (
+      {vendorsFiltered.map(vendor => (
         <VendorCard key={vendor.id} {...vendor} />
       ))}
     </div>
