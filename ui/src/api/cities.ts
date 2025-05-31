@@ -17,7 +17,7 @@ type CityListOutput = City[];
  * @returns Promise<string[]> - Array of city names
  */
 export async function fetchCities(): Promise<CityListOutput> {
-  const response = await fetch(`${BASE_URL}/get-cities`);
+  const response = await fetch(`${BASE_URL}/cities`);
   if (!response.ok) {
     throw new Error('Failed to fetch cities');
   }

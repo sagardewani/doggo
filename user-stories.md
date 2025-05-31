@@ -21,9 +21,9 @@ As a pet owner, I want to select my city from a dropdown on the homepage so that
 
 **Acceptance Criteria:**
 
-- By default, the homepage displays all vendors regardless of city (using GET /get/all-vendors).
-- The homepage displays a city selector dropdown with all supported cities (from GET /get-cities).
-- Upon selecting a city, the vendor list updates to show only vendors from that city (using GET /get/all-vendors/:city).
+- By default, the homepage displays all vendors regardless of city (using GET /vendors).
+- The homepage displays a city selector dropdown with all supported cities (from GET /cities).
+- Upon selecting a city, the vendor list updates to show only vendors from that city (using GET /vendors/:city).
 - The city selector is always visible at the top of the homepage below the header on right side.
 
 ---
@@ -38,7 +38,7 @@ As a pet owner, I want to view and filter a list of pet service vendors by servi
 - By default, the vendor list displays cards for all vendors (not filtered by city).
 - When a city is selected, the vendor list displays cards for each vendor in the selected city.
 - Service filter buttons (e.g., Grooming, Vet, Pet Food) are visible and update the vendor list when selected.
-- The vendor list is fetched from GET /get/all-vendors (for all vendors) or GET /get/all-vendors/:city (for city-specific vendors) and filtered client-side by category.
+- The vendor list is fetched from GET /vendors (for all vendors) or GET /vendors/:city (for city-specific vendors) and filtered client-side by category.
 
 ---
 

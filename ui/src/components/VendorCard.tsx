@@ -1,4 +1,5 @@
 import { FaWhatsapp, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 export interface VendorCardProps {
   id: string
@@ -8,11 +9,19 @@ export interface VendorCardProps {
   phone: string
   services_provided: string[]
   price_range: string
-  whatsapp_link: string
+  whatsapp_link?: string
+  whatsapp?: string
   map_link: string
+  category?: string
+  address?: string
+  description?: string
+  rating?: number
+  city?: string
+  price_range_value?: { min: number; max: number }
 }
 
 const VendorCard = ({
+  id,
   name,
   profile_photo,
   locality,
@@ -20,6 +29,7 @@ const VendorCard = ({
   services_provided,
   price_range,
   whatsapp_link,
+  whatsapp,
   map_link,
 }: VendorCardProps) => {
   return (
@@ -31,7 +41,9 @@ const VendorCard = ({
       />
       <div className="flex-1 w-full">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full">
-          <h2 className="text-lg font-bold text-yellow-700 mb-1">{name}</h2>
+          <Link to={`/vendor/${id}`} className="text-lg font-bold text-yellow-700 mb-1 hover:underline">
+            {name}
+          </Link>
           <span className="text-sm text-gray-500">{locality}</span>
         </div>
         <div className="flex flex-wrap gap-2 my-2">
@@ -45,10 +57,10 @@ const VendorCard = ({
           <span className="font-semibold text-gray-700">{price_range}</span>
         </div>
         <div className="flex gap-3 mt-3">
-          <a href={`tel:${phone}`} className="flex items-center gap-1 px-3 py-1 bg-yellow-200 text-yellow-800 rounded hover:bg-yellow-300 transition" title="Call">
+          <a href={phone} className="flex items-center gap-1 px-3 py-1 bg-yellow-200 text-yellow-800 rounded hover:bg-yellow-300 transition" title="Call">
             <FaPhoneAlt /> Call
           </a>
-          <a href={whatsapp_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded hover:bg-green-200 transition" title="WhatsApp">
+          <a href={whatsapp_link || whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded hover:bg-green-200 transition" title="WhatsApp">
             <FaWhatsapp /> WhatsApp
           </a>
           <a href={map_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded hover:bg-blue-200 transition" title="Directions">
