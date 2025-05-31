@@ -1,0 +1,82 @@
+{ "cities": [
+  {
+    "name": "Mumbai",
+    "tier": "Tier 1"
+  },
+  {
+    "name": "Delhi",
+    "tier": "Tier 1"
+  },
+  {
+    "name": "Bengaluru",
+    "tier": "Tier 1"
+  },
+  {
+    "name": "Chennai",
+    "tier": "Tier 1"
+  },
+  {
+    "name": "Hyderabad",
+    "tier": "Tier 1"
+  },
+  {
+    "name": "Kolkata",
+    "tier": "Tier 1"
+  },
+  {
+    "name": "Pune",
+    "tier": "Tier 1"
+  },
+  {
+    "name": "Ahmedabad",
+    "tier": "Tier 1"
+  },
+  {
+    "name": "Jaipur",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Lucknow",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Chandigarh",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Indore",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Kochi",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Nagpur",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Visakhapatnam",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Bhopal",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Coimbatore",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Nashik",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Vadodara",
+    "tier": "Tier 2"
+  },
+  {
+    "name": "Surat",
+    "tier": "Tier 2"
+  }
+]}
