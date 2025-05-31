@@ -119,3 +119,31 @@ Returns a list of all vendors in the selected city.
 - **Response:** Same structure as **GET /vendors**, but filtered by the specified city.
 
 ---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React (with Vite)
+- **Backend:** Express.js with Node.js
+- **Database:** Simple JSON-based dummy files (placed in a `dummy/` folder)
+
+---
+
+## 📁 Project Folder Structure
+
+```
+/ (project root)
+│
+├── frontend/           # React + Vite frontend app
+│   └── ...
+│
+├── backend/            # Express.js + Node.js backend
+│   ├── dummy/          # JSON files for mock database
+│   │   ├── cities.json
+│   │   └── vendors.json
+│   └── ...
+│
+├── context.md
+├── README.md
+├── user-stories.md
+└── ...
+```
