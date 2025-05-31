@@ -1,9 +1,18 @@
 import './App.css'
 import Header from './components/Header'
+import CitySelector from './components/CitySelector'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 
 function HomePage() {
-  return <div>{/* Home page content will go here */}</div>
+  const [selectedCity, setSelectedCity] = useState<string | null>(null)
+
+  return (
+    <div>
+      <CitySelector selectedCity={selectedCity} onSelectCity={setSelectedCity} />
+      {/* Vendor list and other homepage content will go here */}
+    </div>
+  )
 }
 
 function VendorProfile() {
