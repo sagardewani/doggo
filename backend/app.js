@@ -2,11 +2,13 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+var cors = require('cors');
 
 var doggoRouter = require('./routes/doggo');
 
 var app = express();
 
+app.use(cors()); // Enable CORS for all routes
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
