@@ -51,6 +51,8 @@ ui/
    npm install react-icons
    ```
 3. Use icons from `react-icons` in your components as needed.
+4. Update the website's title bar:
+  - Change the <title> tag in `ui/index.html` to `DOGGO – Citywide Pet Service Finder 🐶` so the correct project title appears in the browser tab.
 
 ---
 This file tracks all UI-related setup, plugins, structure, and API integration details for the DOGGO frontend.
