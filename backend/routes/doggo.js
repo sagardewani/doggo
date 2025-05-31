@@ -1,10 +1,10 @@
+require('dotenv').config();
+
 var express = require('express');
 var router = express.Router();
 var cities = require('../public/data/cities.json');
-var vendors = require('../public/data/vendors.json');
+var vendorsMockData = require('../public/data/vendors.json');
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 
 const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY; // Set this in your environment
@@ -49,43 +49,43 @@ router.get('/cities', function(req, res, next) {
 router.get('/vendors', async function(req, res, next) {
   try {
     // Join vendors, vendor_profile, and services tables
-    const { data: vendors, error: vErr } = await supabase.from('vendors').select('*');
-    if (vErr) return res.status(500).json({ error: vErr.message });
-    if (!vendors || vendors.length === 0) return res.json({ vendors: [] });
+    // const { data: vendors, error: vErr } = await supabase.from('vendors').select('*');
+    // if (vErr) return res.status(500).json({ error: vErr.message });
+    // if (!vendors || vendors.length === 0) return res.json({ vendors: [] });
 
     // Get all profiles and services
-    const vendorIds = vendors.map(v => v.id);
-    const { data: profiles, error: pErr } = await supabase.from('vendor_profile').select('*').in('vendor_id', vendorIds);
-    const { data: services, error: sErr } = await supabase.from('services').select('*').in('vendor_id', vendorIds);
-    if (pErr || sErr) return res.status(500).json({ error: pErr?.message || sErr?.message });
+    // const vendorIds = vendors.map(v => v.id);
+    // const { data: profiles, error: pErr } = await supabase.from('vendor_profile').select('*').in('vendor_id', vendorIds);
+    // const { data: services, error: sErr } = await supabase.from('services').select('*').in('vendor_id', vendorIds);
+    // if (pErr || sErr) return res.status(500).json({ error: pErr?.message || sErr?.message });
 
-    // Map vendorId to profile and services
-    const profileMap = Object.fromEntries((profiles || []).map(p => [p.vendor_id, p]));
-    const servicesMap = Object.fromEntries((services || []).map(s => [s.vendor_id, s]));
+    // // Map vendorId to profile and services
+    // const profileMap = Object.fromEntries((profiles || []).map(p => [p.vendor_id, p]));
+    // const servicesMap = Object.fromEntries((services || []).map(s => [s.vendor_id, s]));
 
-    // Format as VendorResponse[]
-    const vendorList = vendors.map(v => {
-      const profile = profileMap[v.id] || {};
-      const serviceObj = servicesMap[v.id] || {};
-      return {
-        id: String(v.id),
-        city: v.city || '',
-        name: v.name || '',
-        category: v.category || '',
-        description: profile.description || '',
-        locality: profile.locality || '',
-        rating: v.rating || 0,
-        price_range: profile.price_range || '',
-        price_range_value: profile.price_range_value || { min: 0, max: 0 },
-        phone: profile.phone || '',
-        whatsapp: profile.whatsapp_link || '',
-        address: profile.address || '',
-        map_link: profile.map_link || '',
-        profile_photo: profile.profile_photo_link || '',
-        services_provided: (serviceObj.services_list ? serviceObj.services_list.split(',').map(s => s.trim()) : []),
-      };
-    });
-    res.json({ vendors: vendorList });
+    // // Format as VendorResponse[]
+    // const vendorList = vendors.map(v => {
+    //   const profile = profileMap[v.id] || {};
+    //   const serviceObj = servicesMap[v.id] || {};
+    //   return {
+    //     id: String(v.id),
+    //     city: v.city || '',
+    //     name: v.name || '',
+    //     category: v.category || '',
+    //     description: profile.description || '',
+    //     locality: profile.locality || '',
+    //     rating: v.rating || 0,
+    //     price_range: profile.price_range || '',
+    //     price_range_value: profile.price_range_value || { min: 0, max: 0 },
+    //     phone: profile.phone || '',
+    //     whatsapp: profile.whatsapp_link || '',
+    //     address: profile.address || '',
+    //     map_link: profile.map_link || '',
+    //     profile_photo: profile.profile_photo_link || '',
+    //     services_provided: (serviceObj.services_list ? serviceObj.services_list.split(',').map(s => s.trim()) : []),
+    //   };
+    // });
+    res.json({ vendors: vendorsMockData.vendors });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -93,7 +93,7 @@ router.get('/vendors', async function(req, res, next) {
 
 router.get('/vendors/:city', function(req, res, next) {
   const city = req.params.city;
-  const filteredVendors = vendors.vendors.filter(vendor => vendor.city === city);
+  const filteredVendors = vendorsMockData.vendors.filter(vendor => vendor.city === city);
   if (filteredVendors.length === 0) {
     res.status(404).send({ error: 'No vendors found for this city' });
   }
@@ -270,7 +270,6 @@ router.put('/vendor/me', async (req, res) => {
 
 router.get('/context', async (req, res) => {
   const { data: vendors, error: vErr } = await supabase.from('vendors').select('*');
-  const { data: cities, error: cErr } = await supabase from('cities').select('*');
   if (vErr || cErr) return res.status(500).json({ error: vErr?.message || cErr?.message });
   res.json({ vendors, cities });
 });
