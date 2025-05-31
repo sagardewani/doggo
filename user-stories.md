@@ -126,4 +126,38 @@ As a developer, I want a sample JSON structure for the vendor database so that I
 
 ---
 
-These user stories cover the main screens, API endpoints, and JSON DB structure for the DOGGO app, each with clear acceptance criteria.
+## 9. Fetch All Cities
+
+**User Story:**
+As a user, I want the frontend to fetch and display the list of all cities from the backend using the fetch method so that I can select my city when using the app.
+
+**Acceptance Criteria:**
+- The frontend uses the fetch method to call the GET /cities API.
+- User can view the list of all available cities.
+- Loading and error states are handled gracefully.
+
+---
+
+## 10. Fetch All Vendors
+
+**User Story:**
+As a user, I want the frontend to fetch and display the list of all vendors from the backend using the fetch method so that I can browse all available pet service providers.
+
+**Acceptance Criteria:**
+- The frontend uses the fetch method to call the GET /vendors API.
+- User can view the list of all vendors.
+- Loading and error states are handled gracefully.
+
+---
+
+## 11. Fetch Vendors by City
+
+**User Story:**
+As a user, I want the frontend to fetch and display the list of vendors for a specific city from the backend using the fetch method so that I can see only the vendors relevant to my selected city.
+
+**Acceptance Criteria:**
+- The frontend uses the fetch method to call the GET /vendors/:city API.
+- User can view the list of vendors filtered by the selected city.
+- Loading and error states are handled gracefully.
+
+---
