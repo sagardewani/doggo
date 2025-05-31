@@ -39,6 +39,21 @@ DOGGO is a lightweight AI-powered web app that allows pet owners to discover pet
 
    - Props: name, phone, address, services, price, description, whatsapp_link, map_link, profile_photo
    - Actions: Call, WhatsApp, and Directions button
+3. **VendorProfilePage**
+
+   - Displays all information about the vendor:
+     - Name
+     - Profile photo
+     - Locality
+     - Address
+     - Phone number (tel link)
+     - Services provided
+     - Price range
+     - Description
+     - WhatsApp chat link
+     - Map link for directions
+     - Category
+     - Any additional vendor details
 
 ---
 
