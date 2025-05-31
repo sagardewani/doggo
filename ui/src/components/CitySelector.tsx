@@ -29,7 +29,7 @@ const CitySelector = ({ selectedCity, onSelectCity, setSearchQuery }: CitySelect
   }, [])
 
   return (
-    <div className="flex justify-between w-full max-w-md mx-auto w-full">
+    <div className="flex justify-between mx-auto w-full">
       <div className="flex flex-col items-start gap-2 my-4 bg-white shadow rounded-lg p-4">
         <label htmlFor="city-select" className="font-medium text-gray-700">Select City:</label>
         <select
@@ -46,7 +46,7 @@ const CitySelector = ({ selectedCity, onSelectCity, setSearchQuery }: CitySelect
         {loading && <span className="text-xs text-gray-400">Loading cities...</span>}
         {error && <span className="text-xs text-red-500">{error}</span>}
       </div>
-      <div className="flex flex-col items-start gap-2 my-4 bg-white shadow rounded-lg p-4">
+      <div className="flex flex-col items-start gap-2 my-4 bg-white shadow rounded-lg p-4 w-full">
         <label htmlFor="search-input" className="font-medium text-gray-700">Search:</label>
         <input
           id="search-input"
