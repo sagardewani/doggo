@@ -61,7 +61,8 @@ As a pet owner, I want each vendor card to show key information and quick action
 
 **Acceptance Criteria:**
 
-- Each card displays: name, profile photo, locality, phone (tel link), services, price range (e.g., "₹300 - ₹1500"), WhatsApp link, map link, and call button.
+- Each card displays: name, profile photo, locality, phone (tel link), services, price range (e.g., "₹300 - ₹1500"), services provided, WhatsApp link, map link, and call button.
+- Services provided should be in tags/chip format. Each service should be separate by small gap and trim it if it grows beyond the card width.
 - Clicking the call button initiates a phone call.
 - Clicking the WhatsApp button opens a chat with the vendor.
 - Clicking the map link opens directions in Google Maps.
