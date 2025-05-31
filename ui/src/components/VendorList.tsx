@@ -4,6 +4,7 @@ import VendorCard from './VendorCard'
 
 interface VendorListProps {
   selectedCity: string | null
+  searchQuery: string;
 }
 
 const serviceCategories = [
@@ -17,11 +18,27 @@ const serviceCategories = [
   // Add more as needed
 ]
 
-const VendorList = ({ selectedCity }: VendorListProps) => {
+const VendorList = ({ selectedCity, searchQuery }: VendorListProps) => {
   const [vendors, setVendors] = useState<Vendor[]>([])
+  const [vendorsFiltered, setVendorsFiltered] = useState<Vendor[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>('')
+
+  useEffect(() => {
+    if (searchQuery) {
+      const filtered = vendors.filter(vendor =>
+        vendor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        vendor.locality.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        vendor.services_provided.some(service =>
+          service.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      )
+      setVendorsFiltered(filtered)
+    } else {
+      setVendorsFiltered(vendors)
+    }
+  }, [searchQuery, vendors])
 
   useEffect(() => {
     setLoading(true)
@@ -34,10 +51,12 @@ const VendorList = ({ selectedCity }: VendorListProps) => {
         } else {
           data = await fetchVendors()
         }
-        setVendors(data)
+        setVendors(data);
+        setVendorsFiltered(data);
       } catch {
         setError('Failed to load vendors')
-        setVendors([])
+        setVendors([]);
+        setVendorsFiltered([]);
       } finally {
         setLoading(false)
       }
@@ -47,8 +66,8 @@ const VendorList = ({ selectedCity }: VendorListProps) => {
 
   // Filter vendors by selected category if any
   const filteredVendors = selectedCategory
-    ? vendors.filter(vendor => vendor.services_provided.includes(selectedCategory))
-    : vendors
+    ? vendorsFiltered.filter(vendor => vendor.services_provided.includes(selectedCategory))
+    : vendorsFiltered
 
   if (loading) return <div className="text-gray-500 my-4">Loading vendors...</div>
   if (error) return <div className="text-red-500 my-4">{error}</div>

@@ -7,11 +7,12 @@ import VendorList from './components/VendorList'
 
 function HomePage() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null)
+  const [searchQuery, setSearchQuery] = useState('')
 
   return (
     <div>
-      <CitySelector selectedCity={selectedCity} onSelectCity={setSelectedCity} />
-      <VendorList selectedCity={selectedCity} />
+      <CitySelector selectedCity={selectedCity} onSelectCity={setSelectedCity} setSearchQuery={setSearchQuery} />
+      <VendorList selectedCity={selectedCity} searchQuery={searchQuery} />
     </div>
   )
 }
