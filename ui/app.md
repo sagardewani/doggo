@@ -14,16 +14,20 @@
 ```
 ui/
 ├── public/
+│   ├── doggo-logo.svg
 │   └── vite.svg
 ├── src/
 │   ├── api/            # All API utility code and endpoints
+│   ├── assets/
+│   │   └── react.svg
+│   ├── components/     # Reusable UI components
+│   │   ├── Header.tsx
+│   │   └── Header.css
 │   ├── App.tsx
 │   ├── App.css
 │   ├── index.css
 │   ├── main.tsx
 │   ├── vite-env.d.ts
-│   └── assets/
-│       └── react.svg
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
