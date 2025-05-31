@@ -1,0 +1,2603 @@
+{
+  "vendors": [
+    {
+      "id": "MUM001",
+			"city": "Mumbai",
+      "name": "Bombay Paws Clinic",
+      "category": "Veterinarian",
+      "description": "Comprehensive medical care for your beloved pets, from routine check-ups to advanced surgeries.",
+      "locality": "Bandra West",
+      "rating": 4.8,
+			"price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 2000,
+				"max": 5000  
+			},
+      "phone": "tel:+919876500001",
+      "whatsapp": "https://wa.me/919876500001",
+      "address": "101, Linking Road, Bandra West, Mumbai, Maharashtra 400050",
+      "map_link": "https://maps.app.goo.gl/MumbaiVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Clinic+Mumbai",
+      "services_provided": [
+        "Consultation",
+        "Vaccination",
+        "Surgery",
+        "Dental Care",
+        "Diagnostics"
+      ]
+    },
+    {
+      "id": "MUM002",
+			"city": "Mumbai",
+      "name": "Marine Pet Groomers",
+      "category": "Pet Grooming",
+      "description": "Professional grooming services to keep your pets looking and feeling their best. All breeds welcome!",
+      "locality": "Colaba",
+      "rating": 4.7,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2000
+			},
+      "phone": "tel:+919876500002",
+      "whatsapp": "https://wa.me/919876500002",
+      "address": "Shop No. 5, Marine Drive, Colaba, Mumbai, Maharashtra 400005",
+      "map_link": "https://maps.app.goo.gl/MumbaiGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Mumbai",
+      "services_provided": [
+        "Haircut & Styling",
+        "Bath & Blowdry",
+        "Nail Trimming",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "MUM003",
+			"city": "Mumbai",
+      "name": "Doggie Delights Bakery",
+      "category": "Pet Food & Treats",
+      "description": "Homemade, healthy, and delicious treats for your furry friends. Custom cakes available for pet birthdays!",
+      "locality": "Andheri West",
+      "rating": 4.9,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 300,
+				"max": 1500
+			},
+      "phone": "tel:+919876500003",
+      "whatsapp": "https://wa.me/919876500003",
+      "address": "Lokhandwala Complex, Andheri West, Mumbai, Maharashtra 400053",
+      "map_link": "https://maps.app.goo.gl/MumbaiBakery1",
+      "profile_photo": "https://placehold.co/400x300/FDBA74/881337?text=Pet+Bakery+Mumbai",
+      "services_provided": [
+        "Dog Cakes",
+        "Pup-cakes",
+        "Healthy Biscuits",
+        "Custom Orders",
+        "Grain-Free Treats"
+      ]
+    },
+    {
+      "id": "MUM004",
+			"city": "Mumbai",
+      "name": "Luxury Pet Boarding",
+      "category": "Pet Boarding & Daycare",
+      "description": "A luxury home away from home for your pets with spacious suites and constant supervision.",
+      "locality": "Juhu",
+      "rating": 4.6,
+      "price_range": "₹₹₹₹",
+			"price_range_value": {
+				"min": 3000,
+				"max": 8000
+			},
+      "phone": "tel:+919876500004",
+      "whatsapp": "https://wa.me/919876500004",
+      "address": "Near Juhu Beach, Juhu, Mumbai, Maharashtra 400049",
+      "map_link": "https://maps.app.goo.gl/MumbaiBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Mumbai",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Individual Playtime",
+        "Gourmet Meals",
+        "Vet on Call"
+      ]
+    },
+    {
+      "id": "MUM005",
+			"city": "Mumbai",
+      "name": "Wagging Tails Training",
+      "category": "Pet Training",
+      "description": "Positive reinforcement training for puppies and adult dogs. Behavioral correction and obedience classes.",
+      "locality": "Powai",
+      "rating": 4.8,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1500,
+				"max": 4000
+			},
+      "phone": "tel:+919876500005",
+      "whatsapp": "https://wa.me/919876500005",
+      "address": "Hiranandani Gardens, Powai, Mumbai, Maharashtra 400076",
+      "map_link": "https://maps.app.goo.gl/MumbaiTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Mumbai",
+      "services_provided": [
+        "Puppy Training",
+        "Basic Obedience",
+        "Advanced Training",
+        "Behavioral Modification",
+        "Agility Training"
+      ]
+    },
+    {
+      "id": "DEL001",
+			"city": "Delhi",
+      "name": "Delhi Pet Hospital & Diagnostics",
+      "category": "Veterinarian",
+      "description": "State-of-the-art veterinary care with advanced diagnostic facilities for all animals.",
+      "locality": "Saket",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3000
+			},
+      "phone": "tel:+919876500006",
+      "whatsapp": "https://wa.me/919876500006",
+      "address": "Plot No. 10, Press Enclave Road, Saket, New Delhi, Delhi 110017",
+      "map_link": "https://maps.app.goo.gl/DelhiVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Hospital+Delhi",
+      "services_provided": [
+        "Emergency Care",
+        "Pathology",
+        "Radiology",
+        "Specialist Consultations",
+        "Pet Pharmacy"
+      ]
+    },
+    {
+      "id": "DEL002",
+			"city": "Delhi",
+      "name": "The Pet Shop Delhi",
+      "category": "Pet Store",
+      "description": "Your one-stop shop for all pet needs, from premium food to unique accessories.",
+      "locality": "Khan Market",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 200,
+				"max": 1500
+			},
+      "phone": "tel:+919876500007",
+      "whatsapp": "https://wa.me/919876500007",
+      "address": "Shop No. 25, Khan Market, New Delhi, Delhi 110003",
+      "map_link": "https://maps.app.goo.gl/DelhiPetStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Delhi",
+      "services_provided": [
+        "Pet Food",
+        "Accessories",
+        "Toys",
+        "Bedding",
+        "Grooming Supplies"
+      ]
+    },
+    {
+      "id": "DEL003",
+			"city": "Delhi",
+      "name": "Paw Paradise Grooming",
+      "category": "Pet Grooming",
+      "description": "Luxurious grooming services in a calm environment for your pet's ultimate comfort.",
+      "locality": "Defence Colony",
+      "rating": 4.6,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 2500
+			},
+      "phone": "tel:+919876500008",
+      "whatsapp": "https://wa.me/919876500008",
+      "address": "C-25, Defence Colony, New Delhi, Delhi 110024",
+      "map_link": "https://maps.app.goo.gl/DelhiGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Delhi",
+      "services_provided": [
+        "Full Groom",
+        "De-matting",
+        "Spa Treatments",
+        "Dental Brushing",
+        "Pawicure"
+      ]
+    },
+    {
+      "id": "DEL004",
+			"city": "Delhi",
+      "name": "Canine Campus Training",
+      "category": "Pet Training",
+      "description": "Expert dog trainers offering group classes and one-on-one sessions for all behavioral needs.",
+      "locality": "Vasant Kunj",
+      "rating": 4.8,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500009",
+      "whatsapp": "https://wa.me/919876500009",
+      "address": "Sector D, Vasant Kunj, New Delhi, Delhi 110070",
+      "map_link": "https://maps.app.goo.gl/DelhiTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Delhi",
+      "services_provided": [
+        "Obedience Training",
+        "Aggression Management",
+        "House Training",
+        "Clicker Training",
+        "Advanced Tricks"
+      ]
+    },
+    {
+      "id": "DEL005",
+			"city": "Delhi",
+      "name": "PetSitters Delhi",
+      "category": "Pet Sitting",
+      "description": "Reliable and loving pet sitting services in the comfort of your home or ours.",
+      "locality": "Dwarka",
+      "rating": 4.9,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2000
+			},
+      "phone": "tel:+919876500010",
+      "whatsapp": "https://wa.me/919876500010",
+      "address": "Sector 7, Dwarka, New Delhi, Delhi 110077",
+      "map_link": "https://maps.app.goo.gl/DelhiPetSitting1",
+      "profile_photo": "https://placehold.co/400x300/D9F99DAA/3F6212?text=Pet+Sitting+Delhi",
+      "services_provided": [
+        "In-home Pet Sitting",
+        "Daily Visits",
+        "Overnight Stays",
+        "Dog Walking",
+        "Medication Administration"
+      ]
+    },
+    {
+      "id": "BLR001",
+			"city": "Bengaluru",
+      "name": "Bangalore Pet Hospital",
+      "category": "Veterinarian",
+      "description": "A leading pet hospital with a team of experienced veterinarians and modern facilities.",
+      "locality": "Koramangala",
+      "rating": 4.9,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1500,
+				"max": 4000
+			},
+      "phone": "tel:+919876500011",
+      "whatsapp": "https://wa.me/919876500011",
+      "address": "80 Feet Road, Koramangala 4th Block, Bengaluru, Karnataka 560034",
+      "map_link": "https://maps.app.goo.gl/BengaluruVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Bangalore",
+      "services_provided": [
+        "General Health",
+        "Vaccinations",
+        "Surgery",
+        "Dermatology",
+        "Ophthalmology"
+      ]
+    },
+    {
+      "id": "BLR002",
+			"city": "Bengaluru",
+      "name": "Pet Bytes Cafe",
+      "category": "Pet Cafe & Store",
+      "description": "A pet-friendly cafe where you and your furry friend can relax and enjoy gourmet treats.",
+      "locality": "Indiranagar",
+      "rating": 4.7,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 300,
+				"max": 1500
+			},
+      "phone": "tel:+919876500012",
+      "whatsapp": "https://wa.me/919876500012",
+      "address": "100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038",
+      "map_link": "https://maps.app.goo.gl/BengaluruCafe1",
+      "profile_photo": "https://placehold.co/400x300/FDBA74/881337?text=Pet+Cafe+Bengaluru",
+      "services_provided": [
+        "Pet Meals",
+        "Coffee & Snacks",
+        "Pet Accessories",
+        "Events & Workshops"
+      ]
+    },
+    {
+      "id": "BLR003",
+			"city": "Bengaluru",
+      "name": "Garden City Pet Grooming",
+      "category": "Pet Grooming",
+      "description": "Holistic grooming services to ensure your pet's coat and skin health, using natural products.",
+      "locality": "Jayanagar",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 600,
+				"max": 2500
+			},
+      "phone": "tel:+919876500013",
+      "whatsapp": "https://wa.me/919876500013",
+      "address": "4th Block, Jayanagar, Bengaluru, Karnataka 560041",
+      "map_link": "https://maps.app.goo.gl/BengaluruGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Bangalore",
+      "services_provided": [
+        "Bath & Brush",
+        "Full Groom",
+        "Flea & Tick Treatment",
+        "Shed Control",
+        "Medicated Baths"
+      ]
+    },
+    {
+      "id": "BLR004",
+			"city": "Bengaluru",
+      "name": "Barking Heights Boarding",
+      "category": "Pet Boarding",
+      "description": "Spacious and secure boarding facility with trained staff and plenty of outdoor play areas.",
+      "locality": "Electronic City",
+      "rating": 4.5,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 2000,
+				"max": 6000
+			},
+      "phone": "tel:+919876500014",
+      "whatsapp": "https://wa.me/919876500014",
+      "address": "Phase 1, Electronic City, Bengaluru, Karnataka 560100",
+      "map_link": "https://maps.app.goo.gl/BengaluruBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Bangalore",
+      "services_provided": [
+        "Long-term Stays",
+        "Short-term Stays",
+        "Playtime Sessions",
+        "Daily Updates",
+        "Special Diet Accommodation"
+      ]
+    },
+    {
+      "id": "BLR005",
+			"city": "Bengaluru",
+      "name": "Smart Paws Training Academy",
+      "category": "Pet Training",
+      "description": "Certified trainers providing science-based training methods for happy and well-behaved pets.",
+      "locality": "Whitefield",
+      "rating": 4.8,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1200,
+				"max": 3500
+			},
+      "phone": "tel:+919876500015",
+      "whatsapp": "https://wa.me/919876500015",
+      "address": "ITPL Main Road, Whitefield, Bengaluru, Karnataka 560066",
+      "map_link": "https://maps.app.goo.gl/BengaluruTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Bangalore",
+      "services_provided": [
+        "Puppy Socialization",
+        "Advanced Obedience",
+        "Therapy Dog Training",
+        "Recall Training",
+        "Private Sessions"
+      ]
+    },
+    {
+      "id": "CHE001",
+			"city": "Chennai",
+      "name": "Chennai Vet Care & Surgery",
+      "category": "Veterinarian",
+      "description": "A trusted name in pet healthcare, offering surgical expertise and compassionate care.",
+      "locality": "Adyar",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 4000
+			},
+      "phone": "tel:+919876500016",
+      "whatsapp": "https://wa.me/919876500016",
+      "address": "Gandhi Nagar, Adyar, Chennai, Tamil Nadu 600020",
+      "map_link": "https://maps.app.goo.gl/ChennaiVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Chennai",
+      "services_provided": [
+        "General Medicine",
+        "Soft Tissue Surgery",
+        "Orthopedic Surgery",
+        "Wellness Programs",
+        "Emergency Services"
+      ]
+    },
+    {
+      "id": "CHE002",
+			"city": "Chennai",
+      "name": "Pet Palace Store",
+      "category": "Pet Store",
+      "description": "An extensive collection of pet products, from premium foods to unique accessories for all pets.",
+      "locality": "Nungambakkam",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500017",
+      "whatsapp": "https://wa.me/919876500017",
+      "address": "Kodambakkam High Road, Nungambakkam, Chennai, Tamil Nadu 600034",
+      "map_link": "https://maps.app.goo.gl/ChennaiStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Chennai",
+      "services_provided": [
+        "Dog Food",
+        "Cat Food",
+        "Bird Supplies",
+        "Aquarium Needs",
+        "Pet Clothing"
+      ]
+    },
+    {
+      "id": "CHE003",
+			"city": "Chennai",
+      "name": "Madras Pet Grooming Studio",
+      "category": "Pet Grooming",
+      "description": "Professional grooming services designed to make your pet comfortable and happy during their pampering session.",
+      "locality": "Mylapore",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500018",
+      "whatsapp": "https://wa.me/919876500018",
+      "address": "Luz Church Road, Mylapore, Chennai, Tamil Nadu 600004",
+      "map_link": "https://maps.app.goo.gl/ChennaiGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Chennai",
+      "services_provided": [
+        "Styling & Haircuts",
+        "De-shedding Treatment",
+        "Tick & Flea Dips",
+        "Paw Pad Treatment",
+        "Facial Cleansing"
+      ]
+    },
+    {
+      "id": "CHE004",
+			"city": "Chennai",
+      "name": "Paws & Play Daycare",
+      "category": "Pet Daycare",
+      "description": "A fun and safe environment for your pets to socialize and play while you're away.",
+      "locality": "Velachery",
+      "rating": 4.8,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500019",
+      "whatsapp": "https://wa.me/919876500019",
+      "address": "Velachery Main Road, Velachery, Chennai, Tamil Nadu 600042",
+      "map_link": "https://maps.app.goo.gl/ChennaiDaycare1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Daycare+Chennai",
+      "services_provided": [
+        "Full-day Daycare",
+        "Half-day Daycare",
+        "Supervised Play",
+        "Socialization",
+        "Rest Areas"
+      ]
+    },
+    {
+      "id": "CHE005",
+			"city": "Chennai",
+      "name": "Happy Hounds Training",
+      "category": "Pet Training",
+      "description": "Certified trainers offering customized training programs for all breeds and ages, focusing on positive reinforcement.",
+      "locality": "Anna Nagar",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500020",
+      "whatsapp": "https://wa.me/919876500020",
+      "address": "2nd Avenue, Anna Nagar, Chennai, Tamil Nadu 600040",
+      "map_link": "https://maps.app.goo.gl/ChennaiTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Chennai",
+      "services_provided": [
+        "Puppy Kindergarten",
+        "Basic Obedience",
+        "Advanced Obedience",
+        "Behavioral Consultations",
+        "Home Training"
+      ]
+    },
+    {
+      "id": "HYD001",
+			"city": "Hyderabad",
+      "name": "Deccan Pet Clinic",
+      "category": "Veterinarian",
+      "description": "Dedicated veterinary services with modern equipment and compassionate care for your pets.",
+      "locality": "Gachibowli",
+      "rating": 4.6,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500021",
+      "whatsapp": "https://wa.me/919876500021",
+      "address": "Near Financial District, Gachibowli, Hyderabad, Telangana 500032",
+      "map_link": "https://maps.app.goo.gl/HyderabadVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Hyderabad",
+      "services_provided": [
+        "General Check-up",
+        "Vaccination",
+        "Surgery",
+        "Emergency Care",
+        "Lab Tests"
+      ]
+    },
+    {
+      "id": "HYD002",
+			"city": "Hyderabad",
+      "name": "Charminar Pet Store",
+      "category": "Pet Store",
+      "description": "A wide range of pet food, toys, and accessories to keep your companions healthy and happy.",
+      "locality": "Banjara Hills",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500022",
+      "whatsapp": "https://wa.me/919876500022",
+      "address": "Road No. 1, Banjara Hills, Hyderabad, Telangana 500034",
+      "map_link": "https://maps.app.goo.gl/HyderabadStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Hyderabad",
+      "services_provided": [
+        "Premium Pet Food",
+        "Organic Treats",
+        "Pet Beds",
+        "Leashes & Collars",
+        "Travel Accessories"
+      ]
+    },
+    {
+      "id": "HYD003",
+			"city": "Hyderabad",
+      "name": "Nizam's Grooming Salon",
+      "category": "Pet Grooming",
+      "description": "Pampering sessions for your pets with professional groomers ensuring a stress-free experience.",
+      "locality": "Jubilee Hills",
+      "rating": 4.7,
+			"price_range_value": {
+				"min": 700,
+				"max": 2500
+			},
+      "price_range": "₹₹₹",
+      "phone": "tel:+919876500023",
+      "whatsapp": "https://wa.me/919876500023",
+      "address": "Road No. 45, Jubilee Hills, Hyderabad, Telangana 500033",
+      "map_link": "https://maps.app.goo.gl/HyderabadGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Hyderabad",
+      "services_provided": [
+        "Full Body Groom",
+        "Brush Outs",
+        "Nail Grinding",
+        "Pawdicure",
+        "Scented Baths"
+      ]
+    },
+    {
+      "id": "HYD004",
+			"city": "Hyderabad",
+      "name": "Golconda Pet Boarding",
+      "category": "Pet Boarding",
+      "description": "A secure and fun boarding facility with individual kennels and outdoor play areas.",
+      "locality": "Kondapur",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 4000
+			},
+      "phone": "tel:+919876500024",
+      "whatsapp": "https://wa.me/919876500024",
+      "address": "Kondapur Main Road, Hyderabad, Telangana 500084",
+      "map_link": "https://maps.app.goo.gl/HyderabadBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Hyderabad",
+      "services_provided": [
+        "Dog Boarding",
+        "Cat Boarding",
+        "Daily Walks",
+        "Supervised Playtime",
+        "Feeding Schedules"
+      ]
+    },
+    {
+      "id": "HYD005",
+			"city": "Hyderabad",
+      "name": "Hyderabad K9 Training",
+      "category": "Pet Training",
+      "description": "Professional dog training services ranging from basic obedience to advanced behavior modification.",
+      "locality": "Kukatpally",
+      "rating": 4.8,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1200,
+				"max": 3500
+			},
+      "phone": "tel:+919876500025",
+      "whatsapp": "https://wa.me/919876500025",
+      "address": "Kukatpally Housing Board, Hyderabad, Telangana 500072",
+      "map_link": "https://maps.app.goo.com/HyderabadTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Hyderabad",
+      "services_provided": [
+        "Puppy Classes",
+        "Basic Obedience",
+        "Leash Training",
+        "Aggression Management",
+        "Trick Training"
+      ]
+    },
+    {
+      "id": "KOL001",
+			"city": "Kolkata",
+      "name": "Kolkata Veterinary Centre",
+      "category": "Veterinarian",
+      "description": "Offering dedicated and compassionate care for pets with a focus on preventive medicine.",
+      "locality": "Salt Lake City",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500026",
+      "whatsapp": "https://wa.me/919876500026",
+      "address": "Sector 1, Salt Lake City, Kolkata, West Bengal 700064",
+      "map_link": "https://maps.app.goo.gl/KolkataVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Kolkata",
+      "services_provided": [
+        "Routine Checkups",
+        "Vaccination",
+        "Deworming",
+        "Minor Surgery",
+        "Pet Dentistry"
+      ]
+    },
+    {
+      "id": "KOL002",
+			"city": "Kolkata",
+      "name": "The Pet Pantry Kolkata",
+      "category": "Pet Food & Supplies",
+      "description": "A wide selection of natural and premium pet foods, supplements, and essentials.",
+      "locality": "Ballygunge",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 300,
+				"max": 2000
+			},
+      "phone": "tel:+919876500027",
+      "whatsapp": "https://wa.me/919876500027",
+      "address": "Ballygunge Circular Road, Ballygunge, Kolkata, West Bengal 700019",
+      "map_link": "https://maps.app.goo.gl/KolkataFood1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Food+Kolkata",
+      "services_provided": [
+        "Dog Food",
+        "Cat Food",
+        "Supplements",
+        "Bowls & Feeders",
+        "Home Delivery"
+      ]
+    },
+    {
+      "id": "KOL003",
+			"city": "Kolkata",
+      "name": "Bengali Grooming Studio",
+      "category": "Pet Grooming",
+      "description": "Experienced groomers providing gentle and thorough grooming services for all breeds.",
+      "locality": "Southern Avenue",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2000
+			},
+      "phone": "tel:+919876500028",
+      "whatsapp": "https://wa.me/919876500028",
+      "address": "Southern Avenue, Gariahat, Kolkata, West Bengal 700029",
+      "map_link": "https://maps.app.goo.gl/KolkataGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Kolkata",
+      "services_provided": [
+        "Full Groom",
+        "Paw & Nail Care",
+        "Ear Cleaning",
+        "Hair Trimming",
+        "Hydrating Baths"
+      ]
+    },
+    {
+      "id": "KOL004",
+			"city": "Kolkata",
+      "name": "Howrah Pet Boarding",
+      "category": "Pet Boarding",
+      "description": "Safe and supervised pet boarding services, ensuring comfort and care while you're away.",
+      "locality": "Howrah",
+      "rating": 4.3,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500029",
+      "whatsapp": "https://wa.me/919876500029",
+      "address": "GT Road, Howrah, West Bengal 711101",
+      "map_link": "https://maps.app.goo.gl/KolkataBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Kolkata",
+      "services_provided": [
+        "Overnight Stays",
+        "Daily Walks",
+        "Feeding",
+        "Basic Play",
+        "Pet Pick-up/Drop-off"
+      ]
+    },
+    {
+      "id": "KOL005",
+			"city": "Kolkata",
+      "name": "Kolkata K9 Academy",
+      "category": "Pet Training",
+      "description": "Specialized dog training programs for all breeds and behavioral issues, focusing on positive reinforcement.",
+      "locality": "New Town",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500030",
+      "whatsapp": "https://wa.me/919876500030",
+      "address": "Main Arterial Road, New Town, Kolkata, West Bengal 700156",
+      "map_link": "https://maps.app.goo.gl/KolkataTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Kolkata",
+      "services_provided": [
+        "Puppy Training",
+        "Basic Obedience",
+        "Advanced Obedience",
+        "Behavior Modification",
+        "Crate Training"
+      ]
+    },
+    {
+      "id": "PUN001",
+			"city": "Pune",
+      "name": "Pune Pet Care Hospital",
+      "category": "Veterinarian",
+      "description": "A compassionate veterinary hospital providing comprehensive care and advanced medical treatments for pets.",
+      "locality": "Kothrud",
+      "rating": 4.6,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500031",
+      "whatsapp": "https://wa.me/919876500031",
+      "address": "Kothrud Road, Kothrud, Pune, Maharashtra 411038",
+      "map_link": "https://maps.app.goo.gl/PuneVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Pune",
+      "services_provided": [
+        "Consultation",
+        "Vaccination",
+        "Surgery",
+        "Diagnostic Imaging",
+        "Emergency Care"
+      ]
+    },
+    {
+      "id": "PUN002",
+			"city": "Pune",
+      "name": "Deccan Dog House",
+      "category": "Pet Store & Grooming",
+      "description": "Everything your pet needs under one roof - from nutrition to grooming services.",
+      "locality": "Deccan Gymkhana",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 200,
+				"max": 1500
+			},
+      "phone": "tel:+919876500032",
+      "whatsapp": "https://wa.me/919876500032",
+      "address": "Deccan Gymkhana, Pune, Maharashtra 411004",
+      "map_link": "https://maps.app.goo.gl/PuneStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Pune",
+      "services_provided": [
+        "Pet Food",
+        "Toys",
+        "Accessories",
+        "Grooming",
+        "Fish & Birds"
+      ]
+    },
+    {
+      "id": "PUN003",
+			"city": "Pune",
+      "name": "Shivajinagar Pet Salon",
+      "category": "Pet Grooming",
+      "description": "Experienced groomers providing a gentle touch and stylish cuts for your furry companions.",
+      "locality": "Shivajinagar",
+      "rating": 4.7,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2000
+			},
+      "phone": "tel:+919876500033",
+      "whatsapp": "https://wa.me/919876500033",
+      "address": "Fergusson College Road, Shivajinagar, Pune, Maharashtra 411005",
+      "map_link": "https://maps.app.goo.gl/PuneGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Pune",
+      "services_provided": [
+        "Hair Styling",
+        "Bathing",
+        "Nail Care",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "PUN004",
+			"city": "Pune",
+      "name": "Sahyadri Dog Retreat",
+      "category": "Pet Boarding",
+      "description": "A spacious and secure retreat for dogs, offering ample play areas and comfortable living spaces.",
+      "locality": "Hinjewadi",
+      "rating": 4.4,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1500,
+				"max": 5000
+			},
+      "phone": "tel:+919876500034",
+      "whatsapp": "https://wa.me/919876500034",
+      "address": "Phase 2, Hinjewadi, Pune, Maharashtra 411057",
+      "map_link": "https://maps.app.goo.gl/PuneBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Pune",
+      "services_provided": [
+        "Overnight Boarding",
+        "Long-term Stays",
+        "Outdoor Playtime",
+        "Individual Care",
+        "Meal Customization"
+      ]
+    },
+    {
+      "id": "PUN005",
+			"city": "Pune",
+      "name": "Training Tails Pune",
+      "category": "Pet Training",
+      "description": "Positive and effective dog training using modern methods to build a stronger bond with your pet.",
+      "locality": "Baner",
+      "rating": 4.8,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500035",
+      "whatsapp": "https://wa.me/919876500035",
+      "address": "Baner-Sus Road, Baner, Pune, Maharashtra 411045",
+      "map_link": "https://maps.app.goo.gl/PuneTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Pune",
+      "services_provided": [
+        "Puppy Socialization",
+        "Basic Obedience",
+        "Advanced Classes",
+        "Behavioral Solutions",
+        "Personalized Training"
+      ]
+    }, 
+    {
+      "id": "AHM001",
+			"city": "Ahmedabad",
+      "name": "Ahmedabad Pet Hospital",
+      "category": "Veterinarian",
+      "description": "A full-service veterinary hospital dedicated to the health and well-being of your pets.",
+      "locality": "Bodakdev",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500036",
+      "whatsapp": "https://wa.me/919876500036",
+      "address": "S.G. Highway, Bodakdev, Ahmedabad, Gujarat 380054",
+      "map_link": "https://maps.app.goo.gl/AhmedabadVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Ahmedabad",
+      "services_provided": [
+        "General Consultations",
+        "Vaccinations",
+        "Surgical Procedures",
+        "Dental Care",
+        "Pharmacy"
+      ]
+    },
+    {
+      "id": "AHM002",
+			"city": "Ahmedabad",
+      "name": "Kankaria Pet Hub",
+      "category": "Pet Store & Accessories",
+      "description": "Your ultimate destination for all pet supplies, from premium food to stylish accessories.",
+      "locality": "Maninagar",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500037",
+      "whatsapp": "https://wa.me/919876500037",
+      "address": "Maninagar Main Road, Ahmedabad, Gujarat 380008",
+      "map_link": "https://maps.app.goo.gl/AhmedabadStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Ahmedabad",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Aquarium Supplies",
+        "Bird Cages",
+        "Toys",
+        "Training Aids"
+      ]
+    },
+    {
+      "id": "AHM003",
+			"city": "Ahmedabad",
+      "name": "Sabarmati Pet Groomers",
+      "category": "Pet Grooming",
+      "description": "Providing professional and compassionate grooming services tailored to your pet's needs.",
+      "locality": "Sabarmati",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2000
+			},
+      "phone": "tel:+919876500038",
+      "whatsapp": "https://wa.me/919876500038",
+      "address": "Near Sabarmati Ashram, Ahmedabad, Gujarat 380005",
+      "map_link": "https://maps.app.goo.gl/AhmedabadGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Ahmedabad",
+      "services_provided": [
+        "Full Groom",
+        "De-shedding",
+        "Hydrating Baths",
+        "Pawicure",
+        "Teeth Brushing"
+      ]
+    },
+    {
+      "id": "AHM004",
+			"city": "Ahmedabad",
+      "name": "Ahmedabad Pet Sitters",
+      "category": "Pet Sitting",
+      "description": "Reliable and experienced pet sitters offering in-home care for your pets while you're away.",
+      "locality": "Satellite",
+      "rating": 4.8,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 2500
+			},
+      "phone": "tel:+919876500039",
+      "whatsapp": "https://wa.me/919876500039",
+      "address": "Satellite Road, Ahmedabad, Gujarat 380015",
+      "map_link": "https://maps.app.goo.gl/AhmedabadSitting1",
+      "profile_photo": "https://placehold.co/400x300/D9F99DAA/3F6212?text=Pet+Sitting+Ahmedabad",
+      "services_provided": [
+        "In-home Pet Sitting",
+        "Daily Check-ins",
+        "Dog Walking",
+        "Medication Administration",
+        "Plant Watering"
+      ]
+    },
+    {
+      "id": "AHM005",
+			"city": "Ahmedabad",
+      "name": "Gujarat Dog Training",
+      "category": "Pet Training",
+      "description": "Transforming pets into well-behaved companions through positive reinforcement and effective techniques.",
+      "locality": "Thaltej",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500040",
+      "whatsapp": "https://wa.me/919876500040",
+      "address": "Thaltej-Shilaj Road, Ahmedabad, Gujarat 380059",
+      "map_link": "https://maps.app.goo.gl/AhmedabadTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Ahmedabad",
+      "services_provided": [
+        "Puppy Classes",
+        "Basic Obedience",
+        "Advanced Dog Training",
+        "Behavioral Consulting",
+        "One-on-one Sessions"
+      ]
+    }, 
+    {
+      "id": "JAI001",
+			"city": "Jaipur",
+      "name": "Pink City Vet Hospital",
+      "category": "Veterinarian",
+      "description": "Modern veterinary hospital offering a full spectrum of medical services for your beloved pets in Jaipur.",
+      "locality": "C-Scheme",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500041",
+      "whatsapp": "https://wa.me/919876500041",
+      "address": "Bhagwan Das Road, C-Scheme, Jaipur, Rajasthan 302001",
+      "map_link": "https://maps.app.goo.gl/JaipurVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Jaipur",
+      "services_provided": [
+        "General Checkup",
+        "Vaccination",
+        "Minor Surgeries",
+        "Diagnostic Tests",
+        "Pet Wellness"
+      ]
+    },
+    {
+      "id": "JAI002",
+			"city": "Jaipur",
+      "name": "Jaipur Pet Mart",
+      "category": "Pet Store",
+      "description": "Your go-to destination for high-quality pet food, toys, and accessories for all types of pets.",
+      "locality": "Malviya Nagar",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500042",
+      "whatsapp": "https://wa.me/919876500042",
+      "address": "JLN Marg, Malviya Nagar, Jaipur, Rajasthan 302017",
+      "map_link": "https://maps.app.goo.gl/JaipurStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Jaipur",
+      "services_provided": [
+        "Dog Food",
+        "Cat Food",
+        "Bird Seeds",
+        "Fish Food",
+        "Cages & Aquariums"
+      ]
+    },
+    {
+      "id": "JAI003",
+			"city": "Jaipur",
+      "name": "Royal Grooming Parlour",
+      "category": "Pet Grooming",
+      "description": "Pamper your pets with our royal grooming treatments, ensuring they look and feel their best.",
+      "locality": "Vaishali Nagar",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 600,
+				"max": 2500
+			},
+      "phone": "tel:+919876500043",
+      "whatsapp": "https://wa.me/919876500043",
+      "address": "Amrapali Marg, Vaishali Nagar, Jaipur, Rajasthan 302021",
+      "map_link": "https://maps.app.goo.gl/JaipurGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Jaipur",
+      "services_provided": [
+        "Full Body Spa",
+        "Haircut & Styling",
+        "De-shedding Treatment",
+        "Medicated Baths",
+        "Oral Hygiene"
+      ]
+    },
+    {
+      "id": "JAI004",
+			"city": "Jaipur",
+      "name": "Jaipur Pet Resort",
+      "category": "Pet Boarding",
+      "description": "A luxury boarding facility for dogs and cats, offering comfortable stays and plenty of play.",
+      "locality": "Amer",
+      "rating": 4.5,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1200,
+				"max": 4000
+			},
+      "phone": "tel:+919876500044",
+      "whatsapp": "https://wa.me/919876500044",
+      "address": "Near Amer Fort, Amer, Jaipur, Rajasthan 302028",
+      "map_link": "https://maps.app.goo.gl/JaipurBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Jaipur",
+      "services_provided": [
+        "Dog Boarding",
+        "Cat Condos",
+        "Supervised Playtime",
+        "Daily Updates",
+        "Custom Feeding"
+      ]
+    },
+    {
+      "id": "JAI005",
+			"city": "Jaipur",
+      "name": "Smart Dog Trainers Jaipur",
+      "category": "Pet Training",
+      "description": "Professional dog training services with a focus on positive reinforcement and building a strong bond.",
+      "locality": "Mansarovar",
+      "rating": 4.8,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500045",
+      "whatsapp": "https://wa.me/919876500045",
+      "address": "Mansarovar Sector 1, Jaipur, Rajasthan 302020",
+      "map_link": "https://maps.app.goo.gl/JaipurTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Jaipur",
+      "services_provided": [
+        "Puppy Classes",
+        "Basic Obedience",
+        "Advanced Training",
+        "Behavior Correction",
+        "Home Visits"
+      ]
+    }, 
+    {
+      "id": "LKO001",
+			"city": "Lucknow",
+      "name": "Awadhi Pet Clinic",
+      "category": "Veterinarian",
+      "description": "Providing compassionate and comprehensive veterinary care with modern facilities in Lucknow.",
+      "locality": "Hazratganj",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 600,
+				"max": 2500
+			},
+      "phone": "tel:+919876500046",
+      "whatsapp": "https://wa.me/919876500046",
+      "address": "Mahatma Gandhi Marg, Hazratganj, Lucknow, Uttar Pradesh 226001",
+      "map_link": "https://maps.app.goo.gl/LucknowVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Lucknow",
+      "services_provided": [
+        "General Medicine",
+        "Vaccinations",
+        "Emergency Care",
+        "Surgical Procedures",
+        "Health Certificates"
+      ]
+    },
+    {
+      "id": "LKO002",
+			"city": "Lucknow",
+      "name": "Nawabi Pet Needs",
+      "category": "Pet Store & Supplies",
+      "description": "A curated selection of high-quality pet products, from nutritious food to engaging toys.",
+      "locality": "Gomti Nagar",
+      "rating": 4.3,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 150,
+				"max": 1800	
+			},
+      "phone": "tel:+919876500047",
+      "whatsapp": "https://wa.me/919876500047",
+      "address": "Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010",
+      "map_link": "https://maps.app.goo.gl/LucknowStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Lucknow",
+      "services_provided": [
+        "Dog Food",
+        "Cat Food",
+        "Grooming Tools",
+        "Training Collars",
+        "Travel Crates"
+      ]
+    },
+    {
+      "id": "LKO003",
+			"city": "Lucknow",
+      "name": "Lucknow Pet Spa",
+      "category": "Pet Grooming",
+      "description": "Professional pet grooming with a gentle touch, ensuring your pet is relaxed and looking fabulous.",
+      "locality": "Indira Nagar",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2000
+			},
+      "phone": "tel:+919876500048",
+      "whatsapp": "https://wa.me/919876500048",
+      "address": "Sector 10, Indira Nagar, Lucknow, Uttar Pradesh 226016",
+      "map_link": "https://maps.app.goo.gl/LucknowGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Lucknow",
+      "services_provided": [
+        "Full Groom",
+        "De-shedding",
+        "Hair Trimming",
+        "Nail Clipping",
+        "Ear Cleaning"
+      ]
+    },
+    {
+      "id": "LKO004",
+			"city": "Lucknow",
+      "name": "Oudh Pet Boarding",
+      "category": "Pet Boarding",
+      "description": "Safe, clean, and caring environment for your pets while you are away, with daily activities.",
+      "locality": "Aliganj",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500049",
+      "whatsapp": "https://wa.me/919876500049",
+      "address": "Sector E, Aliganj, Lucknow, Uttar Pradesh 226024",
+      "map_link": "https://maps.app.goo.gl/LucknowBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Lucknow",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Individual Playtime",
+        "Diet Monitoring",
+        "Vet on Call"
+      ]
+    },
+    {
+      "id": "LKO005",
+			"city": "Lucknow",
+      "name": "United K9 Academy",
+      "category": "Pet Training",
+      "description": "Certified trainers providing customized training solutions for puppies and adult dogs.",
+      "locality": "Chowk",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500050",
+      "whatsapp": "https://wa.me/919876500050",
+      "address": "Chowk Main Road, Lucknow, Uttar Pradesh 226003",
+      "map_link": "https://maps.app.goo.gl/LucknowTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Lucknow",
+      "services_provided": [
+        "Puppy Obedience",
+        "Basic Commands",
+        "Advanced Training",
+        "Leash Manners",
+        "Behavioral Modification"
+      ]
+    },
+    {
+      "id": "CHD001",
+			"city": "Chandigarh",
+      "name": "Chandigarh Vet Centre",
+      "category": "Veterinarian",
+      "description": "Providing compassionate and advanced veterinary care for all your beloved pets in Chandigarh.",
+      "locality": "Sector 35",
+      "rating": 4.7,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500051",
+      "whatsapp": "https://wa.me/919876500051",
+      "address": "Sector 35-C, Chandigarh, Punjab 160022",
+      "map_link": "https://maps.app.goo.gl/ChandigarhVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Chandigarh",
+      "services_provided": [
+        "Routine Checkups",
+        "Vaccinations",
+        "Surgery",
+        "Dental Care",
+        "Preventive Medicine"
+      ]
+    },
+    {
+      "id": "CHD002",
+			"city": "Chandigarh",
+      "name": "The Pet Store Chandigarh",
+      "category": "Pet Store & Supplies",
+      "description": "Your comprehensive pet supply store offering a wide range of products for all pets.",
+      "locality": "Sector 17",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 200,
+				"max": 1500
+			},
+      "phone": "tel:+919876500052",
+      "whatsapp": "https://wa.me/919876500052",
+      "address": "Sector 17-E, Chandigarh, Punjab 160017",
+      "map_link": "https://maps.app.goo.gl/ChandigarhStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Chandigarh",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Toys",
+        "Leashes & Collars",
+        "Grooming Products",
+        "Aquarium Supplies"
+      ]
+    },
+    {
+      "id": "CHD003",
+			"city": "Chandigarh",
+      "name": "Union Territory Pet Groomers",
+      "category": "Pet Grooming",
+      "description": "Professional grooming services focused on hygiene, comfort, and style for your furry friends.",
+      "locality": "Sector 22",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2000
+			},
+      "phone": "tel:+919876500053",
+      "whatsapp": "https://wa.me/919876500053",
+      "address": "Sector 22-D, Chandigarh, Punjab 160022",
+      "map_link": "https://maps.app.goo.gl/ChandigarhGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Chandigarh",
+      "services_provided": [
+        "Full Groom",
+        "Bath & Brush",
+        "De-shedding",
+        "Nail Trimming",
+        "Hair Styling"
+      ]
+    },
+    {
+      "id": "CHD004",
+			"city": "Chandigarh",
+      "name": "Chandigarh Canine Club",
+      "category": "Pet Training",
+      "description": "Offering a variety of dog training classes, from puppy basics to advanced obedience.",
+      "locality": "Sector 40",
+      "rating": 4.8,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500054",
+      "whatsapp": "https://wa.me/919876500054",
+      "address": "Sector 40-B, Chandigarh, Punjab 160036",
+      "map_link": "https://maps.app.goo.gl/ChandigarhTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Chandigarh",
+      "services_provided": [
+        "Puppy Classes",
+        "Basic Obedience",
+        "Advanced Training",
+        "Behavioral Modification",
+        "Aggression Management"
+      ]
+    },
+    {
+      "id": "CHD005",
+			"city": "Chandigarh",
+      "name": "Panchkula Pet Boarding",
+      "category": "Pet Boarding & Daycare",
+      "description": "A safe and fun environment for pets, offering boarding and daycare services with personal attention.",
+      "locality": "Panchkula",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500	
+			},
+      "phone": "tel:+919876500055",
+      "whatsapp": "https://wa.me/919876500055",
+      "address": "Sector 12, Panchkula, Haryana 134112",
+      "map_link": "https://maps.app.goo.gl/PanchkulaBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Panchkula",
+      "services_provided": [
+        "Overnight Boarding",
+        "Daycare",
+        "Supervised Play",
+        "Feeding Schedules",
+        "Walks & Exercise"
+      ]
+    }, 
+    {
+      "id": "IND001",
+			"city": "Indore",
+      "name": "Indore Pet Hospital",
+      "category": "Veterinarian",
+      "description": "A trusted veterinary hospital in Indore providing compassionate care and advanced medical treatments for all pets.",
+      "locality": "Vijay Nagar",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 600,
+				"max": 2500
+			},
+      "phone": "tel:+919876500056",
+      "whatsapp": "https://wa.me/919876500056",
+      "address": "AB Road, Vijay Nagar, Indore, Madhya Pradesh 452010",
+      "map_link": "https://maps.app.goo.gl/IndoreVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Indore",
+      "services_provided": [
+        "Consultation",
+        "Vaccination",
+        "Surgery",
+        "Diagnostics",
+        "Emergency Services"
+      ]
+    },
+    {
+      "id": "IND002",
+			"city": "Indore",
+      "name": "Sarafa Pet Supplies",
+      "category": "Pet Store",
+      "description": "Your local pet store offering a curated selection of quality pet food, toys, and health products.",
+      "locality": "Sarafa Bazaar",
+      "rating": 4.3,
+      "price_range": "₹",
+			"price_range_value": {
+				"min": 50,
+				"max": 1500
+			},
+      "phone": "tel:+919876500057",
+      "whatsapp": "https://wa.me/919876500057",
+      "address": "Sarafa Bazaar, Indore, Madhya Pradesh 452002",
+      "map_link": "https://maps.app.goo.gl/IndoreStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Indore",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Treats",
+        "Accessories",
+        "Bird Cages",
+        "Pet Health Products"
+      ]
+    },
+    {
+      "id": "IND003",
+			"city": "Indore",
+      "name": "Malwa Pet Grooming",
+      "category": "Pet Grooming",
+      "description": "Professional grooming services to keep your pets clean, comfortable, and looking their best.",
+      "locality": "Scheme No. 78",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 400,
+				"max": 1800
+			},
+      "phone": "tel:+919876500058",
+      "whatsapp": "https://wa.me/919876500058",
+      "address": "Scheme No. 78, Part-II, Indore, Madhya Pradesh 452010",
+      "map_link": "https://maps.app.goo.gl/IndoreGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Indore",
+      "services_provided": [
+        "Haircut",
+        "Bathing",
+        "Nail Trimming",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "IND004",
+			"city": "Indore",
+      "name": "Indore Doggy Daycare",
+      "category": "Pet Daycare",
+      "description": "A fun and secure environment for your dogs to play and socialize during the day.",
+      "locality": "Bicholi Mardana",
+      "rating": 4.7,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2000
+			},
+      "phone": "tel:+919876500059",
+      "whatsapp": "https://wa.me/919876500059",
+      "address": "Bicholi Mardana, Indore, Madhya Pradesh 452016",
+      "map_link": "https://maps.app.goo.gl/IndoreDaycare1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Dog+Daycare+Indore",
+      "services_provided": [
+        "Full-day Daycare",
+        "Half-day Daycare",
+        "Supervised Playtime",
+        "Socialization",
+        "Rest Areas"
+      ]
+    },
+    {
+      "id": "IND005",
+			"city": "Indore",
+      "name": "Paw-fect Training Indore",
+      "category": "Pet Training",
+      "description": "Experienced trainers offering personalized training programs for all breeds and temperaments.",
+      "locality": "South Tukoganj",
+      "rating": 4.8,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500060",
+      "whatsapp": "https://wa.me/919876500060",
+      "address": "South Tukoganj, Indore, Madhya Pradesh 452001",
+      "map_link": "https://maps.app.goo.gl/IndoreTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Indore",
+      "services_provided": [
+        "Puppy Socialization",
+        "Obedience Training",
+        "Behavior Modification",
+        "Agility Training",
+        "Guard Dog Training"
+      ]
+    }, 
+    {
+      "id": "KOC001",
+			"city": "Kochi",
+      "name": "Kochi Pet Clinic",
+      "category": "Veterinarian",
+      "description": "A compassionate and professional veterinary clinic providing complete care for your pets in Kochi.",
+      "locality": "Kakkanad",
+      "rating": 4.7,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500061",
+      "whatsapp": "https://wa.me/919876500061",
+      "address": "Seaport-Airport Road, Kakkanad, Kochi, Kerala 682030",
+      "map_link": "https://maps.app.goo.gl/KochiVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Kochi",
+      "services_provided": [
+        "Consultation",
+        "Vaccination",
+        "Deworming",
+        "Basic Surgery",
+        "Pet Pharmacy"
+      ]
+    },
+    {
+      "id": "KOC002",
+			"city": "Kochi",
+      "name": "Kerala Pet Paradise",
+      "category": "Pet Store & Accessories",
+      "description": "Your destination for high-quality pet food, trendy accessories, and happy pet supplies.",
+      "locality": "MG Road",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500062",
+      "whatsapp": "https://wa.me/919876500062",
+      "address": "MG Road, Ernakulam, Kochi, Kerala 682011",
+      "map_link": "https://maps.app.goo.gl/KochiStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Kochi",
+      "services_provided": [
+        "Premium Pet Food",
+        "Toys",
+        "Beds",
+        "Grooming Supplies",
+        "Aquarium Fish"
+      ]
+    },
+    {
+      "id": "KOC003",
+			"city": "Kochi",
+      "name": "Backwater Pet Grooming",
+      "category": "Pet Grooming",
+      "description": "Expert pet grooming services in a calm and caring environment, ensuring your pet's comfort.",
+      "locality": "Panampilly Nagar",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 400,
+				"max": 1800
+			},
+      "phone": "tel:+919876500063",
+      "whatsapp": "https://wa.me/919876500063",
+      "address": "Panampilly Avenue, Panampilly Nagar, Kochi, Kerala 682036",
+      "map_link": "https://maps.app.goo.gl/KochiGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Kochi",
+      "services_provided": [
+        "Full Groom",
+        "Bath & Blowdry",
+        "Nail Clipping",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "KOC004",
+			"city": "Kochi",
+      "name": "Fort Kochi Pet Boarding",
+      "category": "Pet Boarding",
+      "description": "A cozy and secure boarding facility with ample space for play and relaxation for your pets.",
+      "locality": "Fort Kochi",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500064",
+      "whatsapp": "https://wa.me/919876500064",
+      "address": "Napier Street, Fort Kochi, Kerala 682001",
+      "map_link": "https://maps.app.goo.gl/KochiBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Kochi",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Supervised Playtime",
+        "Personalized Feeding",
+        "Daily Updates"
+      ]
+    },
+    {
+      "id": "KOC005",
+			"city": "Kochi",
+      "name": "Kochi K9 Trainers",
+      "category": "Pet Training",
+      "description": "Experienced and certified dog trainers dedicated to helping you build a stronger bond with your dog.",
+      "locality": "Edappally",
+      "rating": 4.8,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500065",
+      "whatsapp": "https://wa.me/919876500065",
+      "address": "Edappally Bypass, Kochi, Kerala 682024",
+      "map_link": "https://maps.app.goo.gl/KochiTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Kochi",
+      "services_provided": [
+        "Puppy Training",
+        "Basic Obedience",
+        "Advanced Training",
+        "Behavioral Consulting",
+        "Leash Training"
+      ]
+    }, 
+    {
+      "id": "NAG001",
+			"city": "Nagpur",
+      "name": "Nagpur Pet Care & Clinic",
+      "category": "Veterinarian",
+      "description": "A leading veterinary clinic in Nagpur providing compassionate and comprehensive care for all pets.",
+      "locality": "Dharampeth",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500066",
+      "whatsapp": "https://wa.me/919876500066",
+      "address": "Dharampeth Main Road, Nagpur, Maharashtra 440010",
+      "map_link": "https://maps.app.goo.gl/NagpurVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Nagpur",
+      "services_provided": [
+        "General Checkup",
+        "Vaccination",
+        "Deworming",
+        "Basic Surgery",
+        "Health Certificates"
+      ]
+    },
+    {
+      "id": "NAG002",
+			"city": "Nagpur",
+      "name": "Orange City Pet Store",
+      "category": "Pet Store",
+      "description": "Your local store for all pet essentials, including food, toys, and grooming products.",
+      "locality": "Civil Lines",
+      "rating": 4.3,
+      "price_range": "₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 1500
+			},
+      "phone": "tel:+919876500067",
+      "whatsapp": "https://wa.me/919876500067",
+      "address": "Civil Lines, Nagpur, Maharashtra 440001",
+      "map_link": "https://maps.app.goo.gl/NagpurStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Nagpur",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Treats",
+        "Accessories",
+        "Cages",
+        "Aquarium Supplies"
+      ]
+    },
+    {
+      "id": "NAG003",
+			"city": "Nagpur",
+      "name": "Nagpur Pet Grooming Studio",
+      "category": "Pet Grooming",
+      "description": "Professional grooming services ensuring your pet's comfort and a beautiful finish.",
+      "locality": "Ramdaspeth",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 400,
+				"max": 1800
+			},
+      "phone": "tel:+919876500068",
+      "whatsapp": "https://wa.me/919876500068",
+      "address": "Ramdaspeth, Nagpur, Maharashtra 440010",
+      "map_link": "https://maps.app.goo.gl/NagpurGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Nagpur",
+      "services_provided": [
+        "Full Groom",
+        "Haircut",
+        "Nail Trimming",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "NAG004",
+			"city": "Nagpur",
+      "name": "Nagpur Dog Boarding",
+      "category": "Pet Boarding",
+      "description": "A safe and friendly boarding facility for dogs, with spacious kennels and daily outdoor play.",
+      "locality": "Wardha Road",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500069",
+      "whatsapp": "https://wa.me/919876500069",
+      "address": "Wardha Road, Nagpur, Maharashtra 440025",
+      "map_link": "https://maps.app.goo.gl/NagpurBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Dog+Boarding+Nagpur",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Supervised Play",
+        "Feeding",
+        "Special Care"
+      ]
+    },
+    {
+      "id": "NAG005",
+			"city": "Nagpur",
+      "name": "Central India Pet Training",
+      "category": "Pet Training",
+      "description": "Professional dog training services with a focus on positive reinforcement and behavioral development.",
+      "locality": "Trimurti Nagar",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500070",
+      "whatsapp": "https://wa.me/919876500070",
+      "address": "Trimurti Nagar, Nagpur, Maharashtra 440022",
+      "map_link": "https://maps.app.goo.gl/NagpurTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Nagpur",
+      "services_provided": [
+        "Puppy Classes",
+        "Basic Obedience",
+        "Advanced Obedience",
+        "Behavioral Consulting",
+        "Home Training"
+      ]
+    }, 
+    {
+      "id": "VIZ001",
+			"city": "Visakhapatnam",
+      "name": "Vizag Pet Clinic",
+      "category": "Veterinarian",
+      "description": "Comprehensive veterinary services including preventive care, diagnostics, and surgery for all pets.",
+      "locality": "Dwaraka Nagar",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500071",
+      "whatsapp": "https://wa.me/919876500071",
+      "address": "Dwaraka Nagar, Visakhapatnam, Andhra Pradesh 530016",
+      "map_link": "https://maps.app.goo.gl/VizagVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Vizag",
+      "services_provided": [
+        "Consultation",
+        "Vaccination",
+        "Surgery",
+        "Emergency Care",
+        "Lab Facilities"
+      ]
+    },
+    {
+      "id": "VIZ002",
+			"city": "Visakhapatnam",
+      "name": "Beach Road Pet Store",
+      "category": "Pet Store & Supplies",
+      "description": "A wide variety of pet food, toys, and accessories to cater to all your pet's needs.",
+      "locality": "Beach Road",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500072",
+      "whatsapp": "https://wa.me/919876500072",
+      "address": "Beach Road, Visakhapatnam, Andhra Pradesh 530003",
+      "map_link": "https://maps.app.goo.gl/VizagStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Vizag",
+      "services_provided": [
+        "Pet Food",
+        "Accessories",
+        "Toys",
+        "Fish Food",
+        "Bird Seeds"
+      ]
+    },
+    {
+      "id": "VIZ003",
+			"city": "Visakhapatnam",
+      "name": "Vizag Pet Groomers",
+      "category": "Pet Grooming",
+      "description": "Professional grooming services to keep your pet clean, healthy, and happy.",
+      "locality": "MVP Colony",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 300,
+				"max": 1500
+			},
+      "phone": "tel:+919876500073",
+      "whatsapp": "https://wa.me/919876500073",
+      "address": "MVP Colony, Visakhapatnam, Andhra Pradesh 530017",
+      "map_link": "https://maps.app.goo.gl/VizagGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Vizag",
+      "services_provided": [
+        "Full Groom",
+        "Bathing",
+        "Nail Clipping",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "VIZ004",
+			"city": "Visakhapatnam",
+      "name": "Araku Valley Pet Boarding",
+      "category": "Pet Boarding",
+      "description": "A safe and spacious home away from home for your pets, with plenty of care and attention.",
+      "locality": "Madhurawada",
+      "rating": 4.3,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500074",
+      "whatsapp": "https://wa.me/919876500074",
+      "address": "Madhurawada, Visakhapatnam, Andhra Pradesh 530041",
+      "map_link": "https://maps.app.goo.gl/VizagBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Vizag",
+      "services_provided": [
+        "Overnight Stays",
+        "Daily Walks",
+        "Feeding",
+        "Playtime",
+        "Medication Admin"
+      ]
+    },
+    {
+      "id": "VIZ005",
+			"city": "Visakhapatnam",
+      "name": "Vizag Dog Training",
+      "category": "Pet Training",
+      "description": "Professional dog training services with personalized attention to ensure effective learning and behavior.",
+      "locality": "Seethammadhara",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500075",
+      "whatsapp": "https://wa.me/919876500075",
+      "address": "Seethammadhara, Visakhapatnam, Andhra Pradesh 530013",
+      "map_link": "https://maps.app.goo.gl/VizagTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Vizag",
+      "services_provided": [
+        "Puppy Obedience",
+        "Basic Commands",
+        "Behavioral Correction",
+        "Leash Training",
+        "Advanced Obedience"
+      ]
+    }, 
+    {
+      "id": "BHO001",
+			"city": "Bhopal",
+      "name": "Bhopal Animal Hospital",
+      "category": "Veterinarian",
+      "description": "Providing compassionate and comprehensive veterinary care, equipped with modern diagnostic tools.",
+      "locality": "MP Nagar",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500076",
+      "whatsapp": "https://wa.me/919876500076",
+      "address": "MP Nagar, Zone-II, Bhopal, Madhya Pradesh 462011",
+      "map_link": "https://maps.app.goo.gl/BhopalVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Bhopal",
+      "services_provided": [
+        "General Checkup",
+        "Vaccination",
+        "Surgery",
+        "Laboratory Services",
+        "Emergency Care"
+      ]
+    },
+    {
+      "id": "BHO002",
+			"city": "Bhopal",
+      "name": "Lake City Pet Store",
+      "category": "Pet Store & Supplies",
+      "description": "A wide selection of pet food, toys, and essential accessories for all your furry and feathered friends.",
+      "locality": "Arera Colony",
+      "rating": 4.3,
+      "price_range": "₹",
+			"price_range_value": {
+				"min": 50,
+				"max": 1500
+			},
+      "phone": "tel:+919876500077",
+      "whatsapp": "https://wa.me/919876500077",
+      "address": "Arera Colony, Bhopal, Madhya Pradesh 462016",
+      "map_link": "https://maps.app.goo.gl/BhopalStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Bhopal",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Toys & Chews",
+        "Leashes & Collars",
+        "Bird Supplies",
+        "Fish Accessories"
+      ]
+    },
+    {
+      "id": "BHO003",
+			"city": "Bhopal",
+      "name": "Bhopal Pet Grooming Salon",
+      "category": "Pet Grooming",
+      "description": "Professional grooming services ensuring a clean, healthy, and happy pet experience.",
+      "locality": "Maharana Pratap Nagar",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 300,
+				"max": 1500
+			},
+      "phone": "tel:+919876500078",
+      "whatsapp": "https://wa.me/919876500078",
+      "address": "Maharana Pratap Nagar, Bhopal, Madhya Pradesh 462023",
+      "map_link": "https://maps.app.goo.gl/BhopalGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Bhopal",
+      "services_provided": [
+        "Full Groom",
+        "Bath & Blowdry",
+        "Nail Trimming",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "BHO004",
+			"city": "Bhopal",
+      "name": "Royal Dog Retreat",
+      "category": "Pet Boarding",
+      "description": "A spacious and secure retreat for dogs, offering comfortable stays and plenty of outdoor play.",
+      "locality": "Kolar Road",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500079",
+      "whatsapp": "https://wa.me/919876500079",
+      "address": "Kolar Road, Bhopal, Madhya Pradesh 462042",
+      "map_link": "https://maps.app.goo.gl/BhopalBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Dog+Boarding+Bhopal",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Supervised Playtime",
+        "Dietary Management",
+        "Grooming On-site"
+      ]
+    },
+    {
+      "id": "BHO005",
+			"city": "Bhopal",
+      "name": "Bhopal K9 Training",
+      "category": "Pet Training",
+      "description": "Professional dog training services with a focus on positive reinforcement and behavioral development.",
+      "locality": "Shahpura",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500080",
+      "whatsapp": "https://wa.me/919876500080",
+      "address": "Shahpura, Bhopal, Madhya Pradesh 462039",
+      "map_link": "https://maps.app.goo.gl/BhopalTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Bhopal",
+      "services_provided": [
+        "Puppy Obedience",
+        "Basic Commands",
+        "Advanced Training",
+        "Behavior Correction",
+        "Aggression Management"
+      ]
+    },  
+    {
+      "id": "COI001",
+			"city": "Coimbatore",
+      "name": "Coimbatore Pet Hospital",
+      "category": "Veterinarian",
+      "description": "Dedicated to providing advanced veterinary care and compassionate service for all pets in Coimbatore.",
+      "locality": "Gandhipuram",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500081",
+      "whatsapp": "https://wa.me/919876500081",
+      "address": "Gandhipuram, Coimbatore, Tamil Nadu 641012",
+      "map_link": "https://maps.app.goo.gl/CoimbatoreVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Coimbatore",
+      "services_provided": [
+        "General Checkup",
+        "Vaccination",
+        "Surgery",
+        "Diagnostics",
+        "Preventive Care"
+      ]
+    },
+    {
+      "id": "COI002",
+			"city": "Coimbatore",
+      "name": "Textile City Pet Store",
+      "category": "Pet Store & Supplies",
+      "description": "Your complete pet store offering a wide range of products for all types of pets, big and small.",
+      "locality": "R.S. Puram",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500082",
+      "whatsapp": "https://wa.me/919876500082",
+      "address": "DB Road, R.S. Puram, Coimbatore, Tamil Nadu 641002",
+      "map_link": "https://maps.app.goo.gl/CoimbatoreStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Coimbatore",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Accessories",
+        "Toys",
+        "Bird Supplies",
+        "Fish Tanks"
+      ]
+    },
+    {
+      "id": "COI003",
+			"city": "Coimbatore",
+      "name": "Coimbatore Pet Grooming",
+      "category": "Pet Grooming",
+      "description": "Professional and gentle grooming services to keep your pets looking and feeling fantastic.",
+      "locality": "Saravanampatti",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 400,
+				"max": 1800
+			},
+      "phone": "tel:+919876500083",
+      "whatsapp": "https://wa.me/919876500083",
+      "address": "Saravanampatti, Coimbatore, Tamil Nadu 641035",
+      "map_link": "https://maps.app.goo.gl/CoimbatoreGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Coimbatore",
+      "services_provided": [
+        "Full Groom",
+        "De-shedding",
+        "Haircut",
+        "Nail Trimming",
+        "Paw Balm Treatment"
+      ]
+    },
+    {
+      "id": "COI004",
+			"city": "Coimbatore",
+      "name": "Nilgiri Pet Boarding",
+      "category": "Pet Boarding & Daycare",
+      "description": "A spacious and secure boarding facility with individual attention and supervised play for all pets.",
+      "locality": "Race Course Road",
+      "rating": 4.3,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500084",
+      "whatsapp": "https://wa.me/919876500084",
+      "address": "Race Course Road, Coimbatore, Tamil Nadu 641018",
+      "map_link": "https://maps.app.goo.gl/CoimbatoreBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Coimbatore",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Personalized Feeding",
+        "Daily Exercise",
+        "Vet on Call"
+      ]
+    },
+    {
+      "id": "COI005",
+			"city": "Coimbatore",
+      "name": "Coimbatore Dog Trainers",
+      "category": "Pet Training",
+      "description": "Certified dog trainers offering effective and humane training methods for all breeds and ages.",
+      "locality": "Saibaba Colony",
+      "rating": 4.7,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500085",
+      "whatsapp": "https://wa.me/919876500085",
+      "address": "Saibaba Colony, Coimbatore, Tamil Nadu 641011",
+      "map_link": "https://maps.app.goo.gl/CoimbatoreTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Coimbatore",
+      "services_provided": [
+        "Puppy Training",
+        "Basic Obedience",
+        "Advanced Obedience",
+        "Behavioral Consults",
+        "Leash Training"
+      ]
+    },  
+    {
+      "id": "NAS001",
+			"city": "Nashik",
+      "name": "Nashik Pet Clinic & Hospital",
+      "category": "Veterinarian",
+      "description": "Providing expert and compassionate veterinary care, from routine check-ups to advanced treatments.",
+      "locality": "Gangapur Road",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500086",
+      "whatsapp": "https://wa.me/919876500086",
+      "address": "Gangapur Road, Nashik, Maharashtra 422013",
+      "map_link": "https://maps.app.goo.gl/NashikVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Nashik",
+      "services_provided": [
+        "Consultation",
+        "Vaccination",
+        "Surgery",
+        "Dental Care",
+        "Preventive Care"
+      ]
+    },
+    {
+      "id": "NAS002",
+			"city": "Nashik",
+      "name": "Grape City Pet Store",
+      "category": "Pet Store & Supplies",
+      "description": "Your comprehensive source for high-quality pet food, toys, and accessories in Nashik.",
+      "locality": "College Road",
+      "rating": 4.3,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500087",
+      "whatsapp": "https://wa.me/919876500087",
+      "address": "College Road, Nashik, Maharashtra 422005",
+      "map_link": "https://maps.app.goo.gl/NashikStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Nashik",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Toys",
+        "Accessories",
+        "Grooming Supplies",
+        "Fish & Aquarium"
+      ]
+    },
+    {
+      "id": "NAS003",
+			"city": "Nashik",
+      "name": "Nashik Pet Spa & Salon",
+      "category": "Pet Grooming",
+      "description": "Offering a range of grooming services for your pets, ensuring they are clean, comfortable, and pampered.",
+      "locality": "Indira Nagar",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 300,
+				"max": 1500
+			},
+      "phone": "tel:+919876500088",
+      "whatsapp": "https://wa.me/919876500088",
+      "address": "Indira Nagar, Nashik, Maharashtra 422009",
+      "map_link": "https://maps.app.goo.gl/NashikGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Nashik",
+      "services_provided": [
+        "Full Groom",
+        "Bath & Blowdry",
+        "Hair Trimming",
+        "Nail Care",
+        "De-shedding Treatment"
+      ]
+    },
+    {
+      "id": "NAS004",
+			"city": "Nashik",
+      "name": "Godavari Pet Boarding",
+      "category": "Pet Boarding",
+      "description": "A safe and caring environment for your pets when you're away, with plenty of outdoor space.",
+      "locality": "Pathardi Phata",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500089",
+      "whatsapp": "https://wa.me/919876500089",
+      "address": "Pathardi Phata, Nashik, Maharashtra 422010",
+      "map_link": "https://maps.app.goo.gl/NashikBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Nashik",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Supervised Playtime",
+        "Individual Care",
+        "Medication Admin"
+      ]
+    },
+    {
+      "id": "NAS005",
+			"city": "Nashik",
+      "name": "Nashik Dog Training Academy",
+      "category": "Pet Training",
+      "description": "Certified trainers offering effective and humane training programs for dogs of all ages and breeds.",
+      "locality": "Dwarka",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500090",
+      "whatsapp": "https://wa.me/919876500090",
+      "address": "Dwarka Circle, Nashik, Maharashtra 422011",
+      "map_link": "https://maps.app.goo.gl/NashikTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Nashik",
+      "services_provided": [
+        "Puppy Kindergarten",
+        "Basic Obedience",
+        "Behavior Modification",
+        "Advance Training",
+        "Private Lessons"
+      ]
+    },  
+    {
+      "id": "VAD001",
+			"city": "Vadodara",
+      "name": "Baroda Pet Hospital",
+      "category": "Veterinarian",
+      "description": "A trusted veterinary hospital providing compassionate care and advanced medical treatments for pets.",
+      "locality": "Alkapuri",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500091",
+      "whatsapp": "https://wa.me/919876500091",
+      "address": "Alkapuri Main Road, Vadodara, Gujarat 390007",
+      "map_link": "https://maps.app.goo.gl/VadodaraVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Vadodara",
+      "services_provided": [
+        "General Checkup",
+        "Vaccination",
+        "Surgery",
+        "Diagnostics",
+        "Preventive Care"
+      ]
+    },
+    {
+      "id": "VAD002",
+			"city": "Vadodara",
+      "name": "Sanskar Nagari Pet Store",
+      "category": "Pet Store & Supplies",
+      "description": "Your one-stop shop for all pet needs, offering a wide array of quality products and accessories.",
+      "locality": "Sayajiganj",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500092",
+      "whatsapp": "https://wa.me/919876500092",
+      "address": "Sayajiganj, Vadodara, Gujarat 390020",
+      "map_link": "https://maps.app.goo.gl/VadodaraStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Vadodara",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Toys",
+        "Accessories",
+        "Aquarium Supplies",
+        "Bird Cages"
+      ]
+    },
+    {
+      "id": "VAD003",
+			"city": "Vadodara",
+      "name": "Vadodara Pet Grooming",
+      "category": "Pet Grooming",
+      "description": "Professional and compassionate grooming services to keep your pet clean, healthy, and happy.",
+      "locality": "Fatehgunj",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 300,
+				"max": 1500
+			},
+      "phone": "tel:+919876500093",
+      "whatsapp": "https://wa.me/919876500093",
+      "address": "Fatehgunj, Vadodara, Gujarat 390002",
+      "map_link": "https://maps.app.goo.gl/VadodaraGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Vadodara",
+      "services_provided": [
+        "Full Groom",
+        "Bath & Blowdry",
+        "Nail Trimming",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "VAD004",
+			"city": "Vadodara",
+      "name": "Gujarat Pet Boarding",
+      "category": "Pet Boarding",
+      "description": "A safe and comfortable home for your pets while you're away, with personalized care and attention.",
+      "locality": "Race Course Road",
+      "rating": 4.3,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500094",
+      "whatsapp": "https://wa.me/919876500094",
+      "address": "Race Course Road, Vadodara, Gujarat 390007",
+      "map_link": "https://maps.app.goo.gl/VadodaraBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Vadodara",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Supervised Play",
+        "Individual Feeding",
+        "Grooming Facilities"
+      ]
+    },
+    {
+      "id": "VAD005",
+			"city": "Vadodara",
+      "name": "Vadodara Dog Training",
+      "category": "Pet Training",
+      "description": "Experienced dog trainers offering a variety of classes from puppy obedience to advanced behavioral training.",
+      "locality": "Gotri Road",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500095",
+      "whatsapp": "https://wa.me/919876500095",
+      "address": "Gotri Road, Vadodara, Gujarat 390021",
+      "map_link": "https://maps.app.goo.gl/VadodaraTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Vadodara",
+      "services_provided": [
+        "Puppy Socialization",
+        "Basic Obedience",
+        "Advanced Training",
+        "Behavior Modification",
+        "Private Sessions"
+      ]
+    }, 
+    {
+      "id": "SUR001",
+			"city": "Surat",
+      "name": "Surat Pet Clinic",
+      "category": "Veterinarian",
+      "description": "A modern pet clinic providing comprehensive and compassionate medical care for all pets.",
+      "locality": "Adajan",
+      "rating": 4.5,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 500,
+				"max": 2500
+			},
+      "phone": "tel:+919876500096",
+      "whatsapp": "https://wa.me/919876500096",
+      "address": "Adajan Road, Surat, Gujarat 395009",
+      "map_link": "https://maps.app.goo.gl/SuratVet1",
+      "profile_photo": "https://placehold.co/400x300/A78BFA/ffffff?text=Vet+Surat",
+      "services_provided": [
+        "General Checkup",
+        "Vaccination",
+        "Deworming",
+        "Minor Surgery",
+        "Preventive Care"
+      ]
+    },
+    {
+      "id": "SUR002",
+			"city": "Surat",
+      "name": "Diamond City Pet Store",
+      "category": "Pet Store & Supplies",
+      "description": "Your ultimate destination for quality pet food, toys, and all essential pet accessories.",
+      "locality": "Varachha Road",
+      "rating": 4.3,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 100,
+				"max": 2000
+			},
+      "phone": "tel:+919876500097",
+      "whatsapp": "https://wa.me/919876500097",
+      "address": "Varachha Road, Surat, Gujarat 395006",
+      "map_link": "https://maps.app.goo.gl/SuratStore1",
+      "profile_photo": "https://placehold.co/400x300/BFDBFE/1E3A8A?text=Pet+Store+Surat",
+      "services_provided": [
+        "Dog/Cat Food",
+        "Treats",
+        "Leashes & Collars",
+        "Beds",
+        "Grooming Tools"
+      ]
+    },
+    {
+      "id": "SUR003",
+			"city": "Surat",
+      "name": "Surat Pet Groomers",
+      "category": "Pet Grooming",
+      "description": "Professional grooming services to ensure your pet is clean, healthy, and stylish.",
+      "locality": "Piplod",
+      "rating": 4.6,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 300,
+				"max": 1500
+			},
+      "phone": "tel:+919876500098",
+      "whatsapp": "https://wa.me/919876500098",
+      "address": "Piplod Road, Surat, Gujarat 395007",
+      "map_link": "https://maps.app.goo.gl/SuratGrooming1",
+      "profile_photo": "https://placehold.co/400x300/93C5FD/ffffff?text=Pet+Grooming+Surat",
+      "services_provided": [
+        "Full Groom",
+        "Bath & Blowdry",
+        "Nail Trimming",
+        "Ear Cleaning",
+        "De-shedding"
+      ]
+    },
+    {
+      "id": "SUR004",
+			"city": "Surat",
+      "name": "Tapi Pet Boarding",
+      "category": "Pet Boarding",
+      "description": "A spacious and secure environment for your pets, offering both short-term and long-term stays.",
+      "locality": "Dumas Road",
+      "rating": 4.4,
+      "price_range": "₹₹",
+			"price_range_value": {
+				"min": 800,
+				"max": 3000
+			},
+      "phone": "tel:+919876500099",
+      "whatsapp": "https://wa.me/919876500099",
+      "address": "Dumas Road, Surat, Gujarat 395007",
+      "map_link": "https://maps.app.goo.gl/SuratBoarding1",
+      "profile_photo": "https://placehold.co/400x300/BEF264/4D7C0F?text=Pet+Boarding+Surat",
+      "services_provided": [
+        "Overnight Stays",
+        "Daycare",
+        "Supervised Playtime",
+        "Feeding Services",
+        "Medication Admin"
+      ]
+    },
+    {
+      "id": "SUR005",
+			"city": "Surat",
+      "name": "Surat Dog Whisperers",
+      "category": "Pet Training",
+      "description": "Certified dog trainers providing effective and positive reinforcement-based training for all dogs.",
+      "locality": "Pal Gam",
+      "rating": 4.7,
+      "price_range": "₹₹₹",
+			"price_range_value": {
+				"min": 1000,
+				"max": 3500
+			},
+      "phone": "tel:+919876500100",
+      "whatsapp": "https://wa.me/919876500100",
+      "address": "Pal Gam Road, Surat, Gujarat 395009",
+      "map_link": "https://maps.app.goo.gl/SuratTraining1",
+      "profile_photo": "https://placehold.co/400x300/FCA5A5/7F1D1D?text=Dog+Training+Surat",
+      "services_provided": [
+        "Puppy Obedience",
+        "Basic Commands",
+        "Advanced Training",
+        "Behavioral Correction",
+        "Leash Training"
+      ]
+    }
+  ]
+}
