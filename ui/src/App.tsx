@@ -45,6 +45,7 @@ function HomePage() {
 function App() {
   return (
     <div className="app-root w-full px-4 sm:px-8">
+      <div className="doggo-bg" />
       <Router>
         <Header />
         <Routes>

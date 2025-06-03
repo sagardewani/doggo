@@ -44,8 +44,8 @@ const Assistant: React.FC = () => {
   if (minimized) {
     return (
       <button
-        className="fixed bottom-4 right-4 z-50 bg-yellow-400 hover:bg-yellow-500 text-white rounded-full shadow-2xl p-3 transition flex items-center justify-center"
-        style={{ minWidth: 48, minHeight: 48 }}
+        className="fixed bottom-4 right-4 z-50 bg-yellow-300 hover:bg-yellow-400 text-white rounded-full shadow-2xl p-3 transition flex items-center justify-center"
+        style={{ width: 48, height: 48 }}
         onClick={() => setMinimized(false)}
         title="Open Doggo Assistant"
       >
@@ -57,7 +57,7 @@ const Assistant: React.FC = () => {
   return (
     <div className="fixed bottom-4 right-4 w-full max-w-xs bg-white rounded-2xl shadow-2xl border border-yellow-100 p-4 z-50 animate-fade-in">
       <button
-        className="absolute top-2 right-2 text-yellow-400 hover:text-yellow-600 text-xl font-bold focus:outline-none"
+        className="absolute top-2 right-2 text-yellow-300 hover:text-yellow-500 text-xl font-bold focus:outline-none"
         onClick={() => setMinimized(true)}
         title="Minimize"
         aria-label="Minimize Assistant"
@@ -65,7 +65,7 @@ const Assistant: React.FC = () => {
       >
         –
       </button>
-      <div className="font-bold text-yellow-700 mb-2 flex items-center gap-2">
+      <div className="font-bold text-yellow-500 mb-2 flex items-center gap-2">
         <span role="img" aria-label="dog">🐶</span> Doggo Assistant
       </div>
       <div className="h-32 overflow-y-auto text-sm mb-2">
