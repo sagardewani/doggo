@@ -18,13 +18,10 @@
 - **Architecture:**
   - Frontend: React (Vite, TypeScript, Tailwind CSS)
   - Backend: Express.js (Node.js), Supabase (Postgres)
-  - Database: Supabase (vendors, vendor_profile, services, cities tables)
+  - Database: JSON
 - **API Design:**
   - RESTful endpoints for vendors, cities, registration, login, profile, services, and context.
   - Integration with Google Places API for external vendor data.
-- **Security:**
-  - Google OAuth for vendor login/registration.
-  - Session/token-based authentication for vendor panel.
 
 ---
 
@@ -35,11 +32,7 @@
   - Environment-based API configuration.
 - **Backend:**
   - Express routes for all business logic.
-  - Supabase integration for all vendor data (CRUD).
-  - Google Places API integration for external data.
   - .env for environment variables.
-- **Database:**
-  - See `db.md` for schema (vendors, vendor_profile, services, cities).
 
 ---
 
@@ -59,9 +52,7 @@
 - **Frontend:**
   - Vercel, Netlify, or GitHub Pages
 - **Backend:**
-  - Render, Railway, or similar Node.js hosting
-- **Database:**
-  - Supabase cloud
+  - Render Node.JS hosting
 - **Environment:**
   - Use `.env` files for API URLs and secrets
 
@@ -83,7 +74,6 @@
 ## 7. **Documentation**
 - **Project context:** `context.md`
 - **User stories:** `user-stories.md`
-- **Database schema:** `db.md`
 - **Test plan:** `testplan.md`
 - **Backend setup:** `backend/backend.md`
 - **Frontend setup:** `ui/app.md`
