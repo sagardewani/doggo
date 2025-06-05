@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cors = require('cors');
 
 var doggoRouter = require('./routes/doggo');
+var breedsRouter = require('./routes/breeds');
 
 var app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/doggo-api', doggoRouter);
+app.use('/doggo-api/breeds', breedsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

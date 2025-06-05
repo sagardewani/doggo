@@ -2,7 +2,61 @@
 
 ## 🧭 Objective
 
-DOGGO is a lightweight AI-powered web app that allows pet owners to discover pet-related service vendors in their city.  It groups vendors by **city** and filters them by service category (e.g., grooming, vet, boarding).
+DOGGO is a lightweight AI-powered web app that allows pet owners to discover pet-related service vendors in their city, connect with other dog owners, and enjoy playful, dog-centric features. The app now supports:
+- Citywide pet service search and filtering
+- Dog owner registration and authentication (using email + dog bark audio as password)
+- Dog profile management (name, breed, bio, photo, age, bark fingerprint)
+- Dog Feed: share and view dog highlights (short videos/captions)
+- AI moderation for dog content
+- Bark-to-Text AI: analyze dog barks, get mood and recommendations
+- Downloadable bark audio for secure login
+
+---
+
+## 🖼️ Screens & Components
+
+1. **HomePage**
+   - City Selector Dropdown
+   - Service Filter Buttons
+   - List of Vendor Cards
+   - FunLanding (playful intro)
+   - Search bar
+   - **AuthButtons**: Themed buttons for "Sniff In (Dog Owner Login)" and "Wag & Register (New Dog Profile)" (always visible on landing)
+2. **VendorCard**
+   - Key info and quick actions
+3. **VendorProfilePage**
+   - All vendor details
+4. **DogFeed** *(after authentication)*
+   - Feed of dog highlights (video, caption, dog/owner info, moderation status)
+5. **AddDogProfile**
+   - Form for dog owner registration (with bark audio upload/download)
+6. **DogOwnerLogin**
+   - Login form (email + bark audio)
+7. **AddDogHighlight** *(after authentication)*
+   - Form to add a highlight for a dog
+8. **BarkAI** *(after authentication)*
+   - Upload/record bark, get transcript/mood/recommendation
+9. **Assistant**
+   - AI chat for vendor/service discovery
+10. **VendorPanel**
+   - Vendor registration, login, and profile management
+
+---
+
+## 🧑‍💻 Routing & Authentication Flow
+
+- **Public Routes:**
+  - `/` (HomePage)
+  - `/add-dog` (Dog Profile Registration)
+  - `/dog-owner-login` (Dog Owner Login)
+  - `/vendor/:id` (Vendor Profile)
+  - `/vendor-panel` (Vendor Panel)
+- **After Authentication (Dog Owner Only):**
+  - `/feed` (DogFeed)
+  - `/dogs/:dogId/add-highlight` (AddDogHighlight)
+  - `/bark-ai` (BarkAI)
+
+All after-authentication UI pages are grouped in an `AuthenticatedRoutes` wrapper for clarity and maintainability. Unauthenticated users attempting to access these routes are redirected to the home page.
 
 ---
 
@@ -12,153 +66,45 @@ DOGGO is a lightweight AI-powered web app that allows pet owners to discover pet
 - Search vendors by name
 - View all pet service vendors in selected city
 - Filter vendors by services (e.g., Grooming, Vet, Pet Food)
-- Vendor card displays:
-  - Name
-  - Profile photo
-  - Address (Short address that should only include locality)
-  - Phone number (tel link)
-  - Services provided
-  - Price range
-  - WhatsApp chat link
-  - Map link for directions
-  - Call button
-- Vendor Profile page to show all the details of vendor
+- Vendor card displays: name, profile photo, address, phone, services, price, WhatsApp, map, call button
+- Vendor Profile page
+- **Dog Owner Registration/Login:**
+  - Register with email and dog bark audio (used as password/fingerprint)
+  - Download and save bark audio for future login
+- **Dog Profile Management:**
+  - Name, breed, age, photo, one-liner bio, bark fingerprint
+- **Dog Feed:**
+  - Add up to 10s video highlights with captions
+  - View a feed of all dog highlights
+  - Like, comment, and connect with other owners (MVP: view/like)
+- **AI Moderation:**
+  - All uploads are checked to ensure content is dog-related
+- **Bark-to-Text AI:**
+  - Upload/record bark audio, get transcript, mood, and recommendations
+- **Security:**
+  - Dog owner authentication is based on email + bark fingerprint
+  - Bark audio is required for login and can be downloaded during registration
+  - All after-authentication pages are protected and require login
 
 ---
 
-## 🖼️ Screens & Components
-
-1. **HomePage**
-
-   - City Selector Dropdown
-   - Service Filter Buttons
-   - List of Vendor Cards
-   - Logo of Doggo App with heading
-   - Search bar to search vendors by name
-2. **VendorCard**
-
-   - Props: name, phone, address, services, price, description, whatsapp_link, map_link, profile_photo
-   - Actions: Call, WhatsApp, and Directions button
-3. **VendorProfilePage**
-
-   - Displays all information about the vendor:
-     - Name
-     - Profile photo
-     - Locality
-     - Address
-     - Phone number (tel link)
-     - Services provided
-     - Price range
-     - Description
-     - WhatsApp chat link
-     - Map link for directions
-     - Category
-     - Any additional vendor details
+## 🔒 Security & Authentication
+- Dog owner authentication is based on email + dog bark fingerprint (AI-powered audio matching)
+- Bark audio is required for both registration and login
+- Bark audio can be downloaded and saved by the owner for future use
+- All sensitive operations (profile creation, highlight upload) require authentication
+- All after-authentication UI pages are grouped and protected in the router
 
 ---
 
-## 📦 APIs (Mock or Static JSON)
-
-You can use `express-js`.
-
-
-### 1. **GET /cities**
-
-Returns a list of all supported cities.
-
-`["Jaipur", "Ahmedabad", "Bangalore"]  `
+## 🧠 AI/ML Integration
+- Bark fingerprinting for secure login
+- Bark-to-text and mood analysis (BarkAI)
+- AI moderation for all uploaded content (video/caption)
 
 ---
 
-### 2. **GET /vendors**
-
-Returns a list of all vendors with complete information.
-
-Each vendor includes:
-
-- Unique ID (id)
-- Name (name)
-- Locality (locality)
-- Address (address)
-- Phone number (phone)
-- List of services provided (services_provided)
-- Price range (price_range) (e.g., "₹300 - ₹1500")
-- Description (description)
-- WhatsApp chat link (whatsapp_link)
-- Map link for directions (map_link)
-- Profile photo URL (profile_photo)
-- Category (category)
-
-**Example Response:**
-
-```
-[
-  {
-    "id": "vendor_001",
-    "name": "Paws & Claws Grooming",
-    "locality": "Malviya Nagar",
-    "address": "Malviya Nagar, Jaipur",
-    "phone": "+91-9876543210",
-    "services_provided": ["Grooming", "Pet Food"],
-    "price_range": "₹300 - ₹1500",
-    "description": "Professional grooming for all breeds.",
-    "whatsapp_link": "https://wa.me/919876543210",
-    "map_link": "https://maps.google.com/?q=Malviya+Nagar+Jaipur",
-    "profile_photo": "https://example.com/photos/pawsclaws.jpg",
-    "category": "Grooming"
-  },
-  {
-    "id": "vendor_002",
-    "name": "Happy Tails Vet Clinic",
-    "locality": "Satellite",
-    "address": "Satellite, Ahmedabad",
-    "phone": "+91-9123456789",
-    "services_provided": ["Vet"],
-    "price_range": "₹300 - ₹1500",
-    "description": "24/7 veterinary care.",
-    "whatsapp_link": "https://wa.me/919123456789",
-    "map_link": "https://maps.google.com/?q=Satellite+Ahmedabad",
-    "profile_photo": "https://example.com/photos/happytails.jpg",
-    "category": "Vet"
-  }
-]
-```
-
----
-
-### 3. **GET /vendors/:city**
-
-Returns a list of all vendors in the selected city.
-
-- **Path Parameter:** `city` (e.g., `/vendors/Jaipur`)
-- **Response:** Same structure as **GET /vendors**, but filtered by the specified city.
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend:** React (with Vite)
-- **Backend:** Express.js with Node.js
-- **Database:** Simple JSON-based dummy files (placed in a `dummy/` folder)
-
----
-
-## 📁 Project Folder Structure
-
-```
-/ (project root)
-│
-├── frontend/           # React + Vite frontend app
-│   └── ...
-│
-├── backend/            # Express.js + Node.js backend
-│   ├── dummy/          # JSON files for mock database
-│   │   ├── cities.json
-│   │   └── vendors.json
-│   └── ...
-│
-├── context.md
-├── README.md
-├── user-stories.md
-└── ...
-```
+## 📝 Notes
+- All new features are designed to be playful, secure, and dog-centric
+- The app is ready for further social features (comments, follows, etc.)
+- All endpoints and DB structure are ready for scalable, secure dog owner and vendor management

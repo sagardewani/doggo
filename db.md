@@ -44,10 +44,53 @@
 
 ---
 
-## Relationships
+## Table: dog_profiles
+| Column           | Type        | Description                       |
+|----------------- |------------ |-----------------------------------|
+| id               | int8        | Primary key (auto-increment)      |
+| name             | varchar     | Dog's name                        |
+| breed            | varchar     | Dog's breed                       |
+| bio              | text        | One-liner bio                     |
+| photo_url        | text        | Dog's profile photo               |
+| email            | varchar     | Dog owner's email                 |
+| age              | int8        | Dog's age (years)                 |
+| bark_fingerprint | text        | Audio fingerprint (password)      |
+| created_at       | timestamptz | Row creation timestamp            |
 
+---
+
+## Table: dog_highlights
+| Column            | Type        | Description                        |
+|------------------ |------------ |------------------------------------|
+| id                | int8        | Primary key (auto-increment)       |
+| dog_id            | int8        | Foreign key to dog_profiles.id     |
+| video_url         | text        | URL to 10s highlight video         |
+| caption           | text        | Short caption                      |
+| moderation_status | varchar     | 'pending', 'approved', 'rejected'  |
+| moderation_reason | text        | Reason for rejection (if any)      |
+| created_at        | timestamptz | Row creation timestamp             |
+
+---
+
+## Table: dog_barks
+| Column         | Type        | Description                        |
+|--------------- |------------ |------------------------------------|
+| id             | int8        | Primary key (auto-increment)       |
+| dog_id         | int8        | Foreign key to dog_profiles.id     |
+| audio_url      | text        | URL to bark audio                  |
+| transcript     | text        | Bark-to-text translation           |
+| mood           | varchar     | Detected mood (e.g., happy, sad)   |
+| recommendation | text        | AI recommendation                  |
+| created_at     | timestamptz | Row creation timestamp             |
+
+---
+
+## Relationships
 - `vendor_profile.vendor_id` → `vendors.id`
 - `services.vendor_id` → `vendors.id`
+- `dog_profiles.email` is unique for each owner
+- `dog_highlights.dog_id` → `dog_profiles.id`
+- `dog_barks.dog_id` → `dog_profiles.id`
 
 ---
 
@@ -95,12 +138,56 @@
 }
 ```
 
+## Example: dog_profiles Table Row (JSON)
+
+```json
+{
+  "id": 1,
+  "name": "Bruno",
+  "breed": "Labrador",
+  "bio": "Loves fetch and belly rubs!",
+  "photo_url": "https://example.com/bruno.jpg",
+  "email": "owner@email.com",
+  "age": 3,
+  "bark_fingerprint": "abc123xyz",
+  "created_at": "2025-06-03T12:00:00Z"
+}
+```
+
+## Example: dog_highlights Table Row (JSON)
+
+```json
+{
+  "id": 1,
+  "dog_id": 1,
+  "video_url": "https://example.com/bruno-highlight.mp4",
+  "caption": "Bruno catching a frisbee!",
+  "moderation_status": "approved",
+  "moderation_reason": "",
+  "created_at": "2025-06-03T12:10:00Z"
+}
+```
+
+## Example: dog_barks Table Row (JSON)
+
+```json
+{
+  "id": 1,
+  "dog_id": 1,
+  "audio_url": "https://example.com/bruno-bark.wav",
+  "transcript": "Woof! (I want to play!)",
+  "mood": "playful",
+  "recommendation": "Take your dog for a walk or play fetch.",
+  "created_at": "2025-06-03T12:15:00Z"
+}
+```
+
 ---
 
 ## Notes
 
-- Use `int8` for all primary/foreign keys (auto-increment).
-- Use `json` for structured fields like `price_range_value`.
-- Use `text` for lists (comma separated) or consider a join table for many-to-many services.
-- Add indexes on `email`, `city`, and `category` for fast lookups.
-- Use foreign keys to enforce relationships between tables.
+- All dog owner authentication is based on email + bark fingerprint (AI-powered audio matching)
+- Bark audio is required for both registration and login, and can be downloaded by the owner
+- All highlights are AI-moderated for dog-related content
+- Bark-to-text and mood analysis is available for all registered dogs
+- The schema is ready for further social features (comments, likes, follows, etc.)

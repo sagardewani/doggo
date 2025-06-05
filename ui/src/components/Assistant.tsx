@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { fetchVendors, type Vendor } from '../api/vendors';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import { FormikInput } from './FormikFields';
 
 const examplePrompts = [
   'I need a dog groomer in Bangalore under ₹1000',
@@ -91,31 +94,38 @@ const Assistant: React.FC = () => {
           ))}
         </div>
       )}
-      <form
-        className="flex gap-2"
-        onSubmit={e => {
-          e.preventDefault();
-          if (input.trim()) handleSend(input.trim());
+      <Formik
+        initialValues={{ input: '' }}
+        validationSchema={Yup.object({ input: Yup.string().required('Please enter a query') })}
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          if (values.input.trim()) handleSend(values.input.trim());
+          resetForm();
+          setSubmitting(false);
         }}
       >
-        <input
-          className="flex-1 border border-yellow-200 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-          placeholder="Ask for a pet service..."
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          list="assistant-prompts"
-        />
-        <datalist id="assistant-prompts">
-          {examplePrompts.map((p, i) => <option key={i} value={p} />)}
-        </datalist>
-        <button
-          type="submit"
-          className="bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg px-3 py-1 font-bold text-sm transition"
-          disabled={loading}
-        >
-          Ask
-        </button>
-      </form>
+        {({ isSubmitting }) => (
+          <Form className="flex gap-2">
+            <FormikInput
+              label=""
+              name="input"
+              placeholder="Ask for a pet service..."
+              className="flex-1 border border-yellow-200 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              list="assistant-prompts"
+              autoComplete="off"
+            />
+            <datalist id="assistant-prompts">
+              {examplePrompts.map((p, i) => <option key={i} value={p} />)}
+            </datalist>
+            <button
+              type="submit"
+              className="bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg px-3 py-1 font-bold text-sm transition"
+              disabled={loading || isSubmitting}
+            >
+              Ask
+            </button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };

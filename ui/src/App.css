@@ -11,8 +11,12 @@
   @apply text-gray-400;
 }
 
+body {
+  @apply bg-gradient-to-br from-gray-900 to-gray-700 min-h-screen;
+}
+
 .app-root {
-  @apply min-h-screen overflow-y-auto relative;
+  @apply min-h-screen;
 }
 
 .doggo-bg {

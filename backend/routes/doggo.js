@@ -6,11 +6,36 @@ var cities = require('../public/data/cities.json');
 var vendorsMockData = require('../public/data/vendors.json');
 const axios = require('axios');
 const { createClient } = require('@supabase/supabase-js');
+const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
+const { createClient: createRedisClient } = require('redis');
+// JWT utility function
+const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const upload = multer({ limits: { fileSize: 500 * 1024 } });
+// --- AI Moderation for Dog Highlights ---
+const { moderateDogContent } = require('../utils/moderation'); // (to be implemented)
+
+// --- DOG BARK: Bark-to-Text & Mood Analysis ---
+const { analyzeDogBark, getBarkFingerprint } = require('../utils/barkai'); // (to be implemented)
+
+const JWT_SECRET = process.env.JWT_SECRET || 'doggo_secret';
+
+// Dummy in-memory vendor sessions (for demo)
+const vendorSessions = {};
 
 const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY; // Set this in your environment
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const S3_BUCKET = process.env.S3_BUCKET;
+const S3_REGION = process.env.S3_REGION;
+const REDIS_URL = process.env.REDIS_URL || 'redis://localhost:6379';
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+const s3 = new S3Client({ region: S3_REGION });
+const redis = createRedisClient({ url: REDIS_URL });
+
+
+redis.connect().catch(console.error);
 
 async function fetchGooglePlaces(service, city) {
   const query = encodeURIComponent(`${service} pet ${city}`);
@@ -36,6 +61,36 @@ async function fetchGooglePlaces(service, city) {
   }));
 }
 
+// Middleware: require authentication for posting highlights and updating dog profiles
+function requireAuth(req, res, next) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  const token = authHeader.replace('Bearer ', '');
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    console.log('Decoded JWT:', decoded);
+    req.authId = decoded.seed; // assign the provided authId (seed) to req
+    next();
+  } catch (err) {
+    return res.status(401).json({ error: 'Invalid or expired token' });
+  }
+}
+
+// Protect all /dogs routes (except /dogs/login and /dogs registration) and /feed
+router.use(['/feed', '/dogs', '/dogs/:dogId/highlights', '/dogs/:dogId/bark', '/dogs/:dogId/highlights', '/dogs/:dogId/bark'], (req, res, next) => {
+  // Allow /dogs/login and POST /dogs (registration) without auth
+  console.log('Request path:', req.path, 'Method:', req.method);
+  if (
+    (req.path === '/login' && req.method === 'POST') ||
+    (req.path === '/' && req.method === 'POST')
+  ) {
+    return next();
+  }
+  return requireAuth(req, res, next);
+});
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -48,43 +103,6 @@ router.get('/cities', function(req, res, next) {
 // GET /vendors - Return all vendors in VendorResponse format
 router.get('/vendors', async function(req, res, next) {
   try {
-    // Join vendors, vendor_profile, and services tables
-    // const { data: vendors, error: vErr } = await supabase.from('vendors').select('*');
-    // if (vErr) return res.status(500).json({ error: vErr.message });
-    // if (!vendors || vendors.length === 0) return res.json({ vendors: [] });
-
-    // Get all profiles and services
-    // const vendorIds = vendors.map(v => v.id);
-    // const { data: profiles, error: pErr } = await supabase.from('vendor_profile').select('*').in('vendor_id', vendorIds);
-    // const { data: services, error: sErr } = await supabase.from('services').select('*').in('vendor_id', vendorIds);
-    // if (pErr || sErr) return res.status(500).json({ error: pErr?.message || sErr?.message });
-
-    // // Map vendorId to profile and services
-    // const profileMap = Object.fromEntries((profiles || []).map(p => [p.vendor_id, p]));
-    // const servicesMap = Object.fromEntries((services || []).map(s => [s.vendor_id, s]));
-
-    // // Format as VendorResponse[]
-    // const vendorList = vendors.map(v => {
-    //   const profile = profileMap[v.id] || {};
-    //   const serviceObj = servicesMap[v.id] || {};
-    //   return {
-    //     id: String(v.id),
-    //     city: v.city || '',
-    //     name: v.name || '',
-    //     category: v.category || '',
-    //     description: profile.description || '',
-    //     locality: profile.locality || '',
-    //     rating: v.rating || 0,
-    //     price_range: profile.price_range || '',
-    //     price_range_value: profile.price_range_value || { min: 0, max: 0 },
-    //     phone: profile.phone || '',
-    //     whatsapp: profile.whatsapp_link || '',
-    //     address: profile.address || '',
-    //     map_link: profile.map_link || '',
-    //     profile_photo: profile.profile_photo_link || '',
-    //     services_provided: (serviceObj.services_list ? serviceObj.services_list.split(',').map(s => s.trim()) : []),
-    //   };
-    // });
     res.json({ vendors: vendorsMockData.vendors });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -112,166 +130,205 @@ router.get('/vendor/:vendorId', function(req, res, next) {
   }
 });
 
-// GET /vendors/services?service=Grooming&service=Pet%20Food
-router.get('/vendors/services', async function(req, res, next) {
-  let { service, city } = req.query;
-  if (!service) {
-    return res.status(400).json({ error: 'At least one service must be specified as a query parameter.' });
-  }
-  let services = Array.isArray(service) ? service : [service];
 
-  // Local vendors
-  let localVendors = vendors.vendors.filter(vendor =>
-    services.every(s => vendor.services_provided.includes(s)) &&
-    (!city || vendor.city.toLowerCase() === city.toLowerCase())
-  );
-
-  // Google Places vendors
-  let googleVendors = [];
-  if (GOOGLE_PLACES_API_KEY && city) {
+// --- DOG FEED: Dog Profiles ---
+// POST /dogs - Create dog profile (multipart/form-data)
+router.post('/dogs', upload.single('audio'), async (req, res) => {
+  try {
+    const { owner_id, name, breed_id, age, photo_url, bio } = req.body;
+    if (!owner_id || !name || !req.file) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+    
+    let fingerprint;
     try {
-      for (const s of services) {
-        const places = await fetchGooglePlaces(s, city);
-        googleVendors = googleVendors.concat(places);
+      fingerprint = await getBarkFingerprint(req.file.buffer);
+    } catch (e) {
+      return res.status(400).json({ error: 'Failed to analyze bark audio' });
+    }
+    // Insert dog profile with fingerprint
+    const { data, error } = await supabase.from('dog_profiles').insert([
+      {
+        owner_id,
+        name,
+        breed_id: breed_id ? Number(breed_id) : null,
+        age: age ? Number(age) : null,
+        photo_url,
+        bio,
+        bark_fingerprint: fingerprint
       }
-    } catch (err) {
-      console.error('Google Places error:', err.message);
+    ]).select("!bark_fingerprint"); // Exclude fingerprint from response
+    if (error) {
+      return res.status(500).json({ error: error.message });
     }
+    res.json({ success: true, profile: data[0] });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Invalidate feed cache on new highlight
+const invalidateFeedCache = async (req, res, next) => {
+  try {
+    const keys = await redis.keys('feed_*');
+    if (keys.length) await redis.del(keys);
+  } catch (e) {}
+  next();
+};
+
+
+// POST /dogs/:dogId/highlights - Add a highlight (auth required)
+router.post('/dogs/:dogId/highlights', invalidateFeedCache, async (req, res) => {
+  const { dogId } = req.params;
+  const { video_url, caption } = req.body;
+  if (!video_url) return res.status(400).json({ error: 'Missing video_url' });
+
+  // AI moderation step
+  let moderation_status = 'pending';
+  let moderation_reason = '';
+  try {
+    const result = await moderateDogContent(video_url, caption);
+    if (result.isDogContent) {
+      moderation_status = 'approved';
+    } else {
+      moderation_status = 'rejected';
+      moderation_reason = result.reason || 'Not dog-related content';
+    }
+  } catch (e) {
+    moderation_status = 'pending'; // fallback if AI fails
+    moderation_reason = 'AI moderation error';
   }
 
-  // Combine and deduplicate by name/address
-  const allVendors = [...localVendors, ...googleVendors];
-  const uniqueVendors = [];
-  const seen = new Set();
-  for (const v of allVendors) {
-    const key = `${v.name}|${v.address}`;
-    if (!seen.has(key)) {
-      uniqueVendors.push(v);
-      seen.add(key);
-    }
+  const { data, error } = await supabase.from('dog_highlights').insert([
+    { dog_id: dogId, video_url, caption, moderation_status, moderation_reason }
+  ]).select();
+  if (error) return res.status(500).json({ error: error.message });
+  if (moderation_status === 'rejected') {
+    return res.status(400).json({ error: moderation_reason, moderation_status });
+  }
+  res.json(data[0]);
+});
+
+// GET /dogs/:dogId/highlights - List highlights for a dog
+router.get('/dogs/:dogId/highlights', async (req, res) => {
+  const { dogId } = req.params;
+  const { data, error } = await supabase.from('dog_highlights').select('*').eq('dog_id', dogId);
+  if (error) return res.status(500).json({ error: error.message });
+  res.json(data);
+});
+
+// GET /feed - Get all highlights with dog & owner info (with Redis cache)
+router.get('/feed', async (req, res) => {
+  const offset = parseInt(req.query.offset) || 0;
+  const limit = parseInt(req.query.limit) || 10;
+  const cacheKey = `feed_${offset}_${limit}`;
+  try {
+    const cached = await redis.get(cacheKey);
+    if (cached) return res.json(JSON.parse(cached));
+  } catch (e) {
+    // If Redis fails, continue without cache
+  }
+  const { data, error } = await supabase
+    .from('dog_highlights')
+    .select('*, dog_profiles(*, owner_id)')
+    // .eq('moderation_status', 'approved')
+    .order('created_at', { ascending: false })
+    .range(offset, offset + limit - 1);
+  if (error) {
+    console.error('Error fetching feed:', error);
+    return res.status(500).json({ error: error.message });
+  }
+  try {
+    await redis.setEx(cacheKey, 30, JSON.stringify(data)); // 30s TTL
+  } catch (e) {}
+  res.json(data);
+});
+
+// POST /dogs/:dogId/bark - Upload bark audio and analyze
+router.post('/dogs/:dogId/bark', async (req, res) => {
+  const { dogId } = req.params;
+  const { audio_url } = req.body;
+  if (!audio_url) return res.status(400).json({ error: 'Missing audio_url' });
+
+  // AI bark analysis
+  let transcript = '';
+  let mood = '';
+  let recommendation = '';
+  try {
+    const result = await analyzeDogBark(audio_url);
+    transcript = result.transcript;
+    mood = result.mood;
+    recommendation = result.recommendation;
+  } catch (e) {
+    return res.status(500).json({ error: 'AI bark analysis failed' });
   }
 
-  res.json(uniqueVendors);
-});
-
-// Vendor registration/login and panel APIs
-// Google OAuth2 setup (pseudo, for real use passport-google-oauth20 or similar)
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-
-// Dummy in-memory vendor sessions (for demo)
-const vendorSessions = {};
-
-// POST /vendor/register - Register a new vendor (after Google login)
-router.post('/vendor/register', async (req, res) => {
-  const { email, googleId, city, category, rating, phone, address, price_range, price_range_value, description, whatsapp_link, map_link, profile_photo_link, locality, services_list } = req.body;
-  if (!email || !googleId) return res.status(400).json({ error: 'Missing required fields' });
-  // Check if vendor already exists in Supabase
-  const { data: existing, error: findErr } = await supabase
-    .from('vendors')
-    .select('*')
-    .eq('email', email)
-    .single();
-  if (existing) return res.status(409).json({ error: 'Vendor already registered' });
-  // Add vendor to vendors table
-  const { data: vendor, error } = await supabase
-    .from('vendors')
-    .insert([
-      {
-        email,
-        googleId,
-        city: city || '',
-        category: category || '',
-        rating: rating || 0
-      },
-    ])
-    .select()
-    .single();
+  const { data, error } = await supabase.from('dog_barks').insert([
+    { dog_id: dogId, audio_url, transcript, mood, recommendation }
+  ]).select();
   if (error) return res.status(500).json({ error: error.message });
-  // Add vendor profile
-  const { data: profile, error: profileErr } = await supabase
-    .from('vendor_profile')
-    .insert([
-      {
-        vendor_id: vendor.id,
-        phone: phone || '',
-        address: address || '',
-        price_range: price_range || '',
-        price_range_value: price_range_value || null,
-        description: description || '',
-        whatsapp_link: whatsapp_link || '',
-        map_link: map_link || '',
-        profile_photo_link: profile_photo_link || '',
-        locality: locality || ''
-      },
-    ])
-    .select()
-    .single();
-  if (profileErr) return res.status(500).json({ error: profileErr.message });
-  // Add services
-  const { data: services, error: servicesErr } = await supabase
-    .from('services')
-    .insert([
-      {
-        vendor_id: vendor.id,
-        services_list: Array.isArray(services_list) ? services_list : (typeof services_list === 'string' ? services_list.split(',').map(s => s.trim()) : [])
-      },
-    ])
-    .select()
-    .single();
-  if (servicesErr) return res.status(500).json({ error: servicesErr.message });
-  res.json({ success: true, vendor, profile, services });
+  res.json(data[0]);
 });
 
-// POST /vendor/login - Login vendor via Google (pseudo, real use OAuth2)
-router.post('/vendor/login', async (req, res) => {
-  const { email, googleId } = req.body;
-  const { data: vendor, error } = await supabase
-    .from('vendors')
+// POST /doggo-api/bark-ai - Analyze dog bark (dummy for now)
+router.post('/bark-ai', async (req, res) => {
+  const { audio_url } = req.body;
+  if (!audio_url) return res.status(400).json({ error: 'Missing audio_url' });
+  const result = await analyzeDogBark(audio_url);
+  res.json(result);
+});
+
+// POST /doggo-api/s3-presigned-url - Get presigned S3 upload URL
+router.post('/s3-presigned-url', async (req, res) => {
+  const { fileName, fileType } = req.body;
+  if (!fileName || !fileType) return res.status(400).json({ error: 'Missing fileName or fileType' });
+  try {
+    const key = `dog_highlights/${Date.now()}_${fileName}`;
+    const command = new PutObjectCommand({
+      Bucket: S3_BUCKET,
+      Key: key,
+      ContentType: fileType,
+      ACL: 'public-read',
+    });
+    const url = await getSignedUrl(s3, command, { expiresIn: 300 });
+    const publicUrl = `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${key}`;
+    res.json({ url, key, publicUrl });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// POST /dogs/login - Dog profile login with owner_id and audio (bark)
+router.post('/dogs/login', upload.single('audio'), async (req, res) => {
+  const { owner_id } = req.body;
+  if (!owner_id || !req.file) {
+    return res.status(400).json({ error: 'Missing owner_id or audio' });
+  }
+  let fingerprint;
+  try {
+    fingerprint = await getBarkFingerprint(req.file.buffer);
+  } catch (e) {
+    return res.status(400).json({ error: 'Failed to analyze bark audio' });
+  }
+  // Find dog profile with matching owner_id and bark_fingerprint
+  const { data: profile, error } = await supabase
+    .from('dog_profiles')
     .select('*')
-    .eq('email', email)
-    .eq('googleId', googleId)
+    .eq('owner_id', owner_id)
+    .eq('bark_fingerprint', fingerprint)
     .single();
-  if (!vendor) return res.status(401).json({ error: 'Invalid credentials' });
-  // Create a session token (dummy)
-  const token = `token_${Date.now()}_${Math.random()}`;
-  vendorSessions[token] = vendor.id;
-  res.json({ success: true, token, vendor });
+  if (error || !profile) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+  // Generate a JWT token using the dog profile id as the seed
+  const token = createJwtToken(profile.id);
+  res.json({ token, profile });
 });
 
-// GET /vendor/me - Get current vendor profile (requires token)
-router.get('/vendor/me', async (req, res) => {
-  const token = req.headers.authorization?.replace('Bearer ', '');
-  const vendorId = vendorSessions[token];
-  if (!vendorId) return res.status(401).json({ error: 'Unauthorized' });
-  const { data: vendor, error } = await supabase
-    .from('vendors')
-    .select('*')
-    .eq('id', vendorId)
-    .single();
-  if (!vendor) return res.status(404).json({ error: 'Vendor not found' });
-  res.json(vendor);
-});
+function createJwtToken(seed) {
+  // You can add more payload fields as needed
+  return jwt.sign({ auth_id: seed }, JWT_SECRET, { expiresIn: '7d' });
+}
 
-// PUT /vendor/me - Update current vendor profile (requires token)
-router.put('/vendor/me', async (req, res) => {
-  const token = req.headers.authorization?.replace('Bearer ', '');
-  const vendorId = vendorSessions[token];
-  if (!vendorId) return res.status(401).json({ error: 'Unauthorized' });
-  const { data: vendor, error } = await supabase
-    .from('vendors')
-    .update(req.body)
-    .eq('id', vendorId)
-    .select()
-    .single();
-  if (error) return res.status(500).json({ error: error.message });
-  res.json({ success: true, vendor });
-});
-
-router.get('/context', async (req, res) => {
-  const { data: vendors, error: vErr } = await supabase.from('vendors').select('*');
-  if (vErr || cErr) return res.status(500).json({ error: vErr?.message || cErr?.message });
-  res.json({ vendors, cities });
-});
 
 module.exports = router;

@@ -217,3 +217,56 @@ As a product owner, I want to fetch a list of vendors who provide specific dog-r
 - Preference should be given to official APIs for reliability and compliance.
 - Data scraping should only be used when APIs are unavailable, and must respect the source’s terms of service.
 - The implementation should be modular to allow switching or combining data sources as needed.
+
+---
+
+## 14. Dog Feed: Add & Share Dog Highlights
+
+**User Story:**
+As a dog owner, I want to add my dog's profile and upload up to 10 seconds of dog highlight videos with a short caption, so I can share my dog's best moments with other pet owners.
+
+**Acceptance Criteria:**
+- Dog owners can create and manage their dog's profile (name, breed, age, photo, etc.).
+- Owners can upload up to 10 seconds of video highlights with a caption.
+- Owners can view a feed of dog highlights from other users.
+- Owners can connect with other pet owners to share and comment on dog highlights.
+- Only dog-related content is allowed (AI moderation).
+
+---
+
+## 15. AI Moderation for Dog Content
+
+**User Story:**
+As a product owner, I want an AI to analyze uploaded content and ensure it is only related to dogs, so the feed remains relevant and safe.
+
+**Acceptance Criteria:**
+- All uploaded videos and captions are analyzed by AI for dog-related content.
+- Non-dog content is flagged and cannot be posted.
+- Users are notified if their content is rejected.
+
+---
+
+## 16. Playful AI: Bark-to-Text & Mood Analysis
+
+**User Story:**
+As a dog owner, I want an AI that can convert my dog's bark to human-readable text or SMS using Google APIs, so I can better understand my dog's mood and needs.
+
+**Acceptance Criteria:**
+- Owners can record and upload a short audio of their dog's bark.
+- AI analyzes the bark and provides a human-readable translation or SMS.
+- AI suggests the dog's likely mood and recommends activities or needs (e.g., play, walk, food).
+- All translations and recommendations are shown in the app.
+
+---
+
+## 17. Why Only Humans Should Have All the Fun?
+
+**User Story:**
+As a product owner, I want to create features that make the app fun and engaging for both dogs and their owners, so that the platform is enjoyable for everyone.
+
+**Acceptance Criteria:**
+- The app includes playful, interactive features for dogs and owners.
+- Features like dog feed, bark-to-text, and AI recommendations are available.
+- The app encourages positive, fun interactions between pet owners and their dogs.
+
+---
