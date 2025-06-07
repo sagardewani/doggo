@@ -65,21 +65,25 @@ async function fetchGooglePlaces(service, city) {
 function requireAuth(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({ valid: false, error: 'Unauthorized' });
   }
   const token = authHeader.replace('Bearer ', '');
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
+    // Check token expiry (exp is in seconds since epoch)
+    if (decoded.exp && Date.now() >= decoded.exp * 1000) {
+      return res.status(401).json({ valid: false, error: 'Token expired' });
+    }
     console.log('Decoded JWT:', decoded);
-    req.authId = decoded.seed; // assign the provided authId (seed) to req
+    req.authId = decoded.auth_id; // assign the provided authId (seed) to req
     next();
   } catch (err) {
-    return res.status(401).json({ error: 'Invalid or expired token' });
+    return res.status(401).json({ valid: false, error: 'Invalid or expired token' });
   }
 }
 
 // Protect all /dogs routes (except /dogs/login and /dogs registration) and /feed
-router.use(['/feed', '/dogs', '/dogs/:dogId/highlights', '/dogs/:dogId/bark', '/dogs/:dogId/highlights', '/dogs/:dogId/bark'], (req, res, next) => {
+router.use(['/feed', '/dogs', '/dogs/verify-token', '/dogs/feed', '/dogs/:dogId/highlights', '/dogs/:dogId/bark', '/dogs/:dogId/highlights', '/dogs/:dogId/bark'], (req, res, next) => {
   // Allow /dogs/login and POST /dogs (registration) without auth
   console.log('Request path:', req.path, 'Method:', req.method);
   if (
@@ -131,6 +135,98 @@ router.get('/vendor/:vendorId', function(req, res, next) {
 });
 
 
+// Invalidate feed cache on new highlight
+const invalidateFeedCache = async (req, res, next) => {
+  try {
+    const keys = await redis.keys('feed_*');
+    if (keys.length) await redis.del(keys);
+  } catch (e) {}
+  next();
+};
+
+// POST /doggo-api/bark-ai - Analyze dog bark (dummy for now)
+router.post('/bark-ai', async (req, res) => {
+  const { audio_url } = req.body;
+  if (!audio_url) return res.status(400).json({ error: 'Missing audio_url' });
+  const result = await analyzeDogBark(audio_url);
+  res.json(result);
+});
+
+// POST /doggo-api/s3-presigned-url - Get presigned S3 upload URL
+router.post('/s3-presigned-url', async (req, res) => {
+  const { fileName, fileType } = req.body;
+  if (!fileName || !fileType) return res.status(400).json({ error: 'Missing fileName or fileType' });
+  try {
+    const key = `dog_highlights/${Date.now()}_${fileName}`;
+    const command = new PutObjectCommand({
+      Bucket: S3_BUCKET,
+      Key: key,
+      ContentType: fileType,
+      ACL: 'public-read',
+    });
+    const url = await getSignedUrl(s3, command, { expiresIn: 300 });
+    const publicUrl = `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${key}`;
+    res.json({ url, key, publicUrl });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// GET /dogs - Get the authenticated user's dog profile
+router.get('/dogs', async (req, res) => {
+  try {
+    console.log('Fetching dog profile for authId:', req.authId);
+    // req.authId is set by requireAuth middleware (should be dog profile id)
+    const { data: profile, error } = await supabase
+      .from('dog_profiles_view')
+      .select('*') // Exclude fingerprint from response
+      .eq('id', req.authId)
+      .single();
+    if (error || !profile) {
+      return res.status(404).json({ error: 'Dog profile not found' });
+    }
+    res.json({ profile });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// GET /feed - Get all highlights with dog & owner info (with Redis cache)
+router.get('/dogs/feed', async (req, res) => {
+  const offset = parseInt(req.query.offset) || 0;
+  const limit = parseInt(req.query.limit) || 10;
+  console.log(`Fetching feed with offset=${offset}, limit=${limit}`);
+  const cacheKey = `feed_${offset}_${limit}`;
+  try {
+    const cached = await redis.get(cacheKey);
+    if (cached) return res.json(JSON.parse(cached));
+  } catch (e) {
+    // If Redis fails, continue without cache
+  }
+  const { data, error } = await supabase
+    .from('dog_highlights')
+    .select('id, caption, created_at, video_url, moderation_status, dog_profile:dog_profiles_view(id, name, photo_url)')
+    .eq('moderation_status', 'approved')
+    .order('created_at', { ascending: false })
+    .range(offset, offset + limit - 1);
+  if (error) {
+    console.error('Error fetching feed:', error);
+    return res.status(500).json({ error: error.message });
+  }
+  try {
+    await redis.setEx(cacheKey, 30, JSON.stringify(data)); // 30s TTL
+  } catch (e) {}
+  res.json(data);
+});
+
+// GET /dogs/:dogId/highlights - List highlights for a dog
+router.get('/dogs/:dogId/highlights', async (req, res) => {
+  const { dogId } = req.params;
+  const { data, error } = await supabase.from('dog_highlights').select('*').eq('dog_id', dogId);
+  if (error) return res.status(500).json({ error: error.message });
+  res.json(data);
+});
+
 // --- DOG FEED: Dog Profiles ---
 // POST /dogs - Create dog profile (multipart/form-data)
 router.post('/dogs', upload.single('audio'), async (req, res) => {
@@ -167,15 +263,68 @@ router.post('/dogs', upload.single('audio'), async (req, res) => {
   }
 });
 
-// Invalidate feed cache on new highlight
-const invalidateFeedCache = async (req, res, next) => {
+// POST /dogs/login - Dog profile login with owner_id and audio (bark)
+router.post('/dogs/login', upload.single('audio'), async (req, res) => {
+  const { owner_id } = req.body;
+  if (!owner_id || !req.file) {
+    return res.status(400).json({ error: 'Missing owner_id or audio' });
+  }
+  let fingerprint;
   try {
-    const keys = await redis.keys('feed_*');
-    if (keys.length) await redis.del(keys);
-  } catch (e) {}
-  next();
-};
+    fingerprint = await getBarkFingerprint(req.file.buffer);
+  } catch (e) {
+    return res.status(400).json({ error: 'Failed to analyze bark audio' });
+  }
+  // Find dog profile with matching owner_id and bark_fingerprint
+  const { data: profile, error } = await supabase
+    .from('dog_profiles')
+    .select('*')
+    .eq('owner_id', owner_id)
+    .eq('bark_fingerprint', fingerprint)
+    .single();
+  if (error || !profile) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+  // Generate a JWT token using the dog profile id as the seed
+  const token = createJwtToken(profile.id);
+  res.json({ token, profile });
+});
 
+// POST /dogs/verify-token - Verify JWT auth token
+router.post('/dogs/verify-token', (req, res) => {
+  try {
+    return res.json({ valid: true, auth_id: req.authId });
+  } catch (err) {
+    console.log('Token verification error:', err);
+    return res.status(401).json({ valid: false, error: 'Invalid or expired token' });
+  }
+});
+
+// POST /dogs/:dogId/bark - Upload bark audio and analyze
+router.post('/dogs/:dogId/bark', async (req, res) => {
+  const { dogId } = req.params;
+  const { audio_url } = req.body;
+  if (!audio_url) return res.status(400).json({ error: 'Missing audio_url' });
+
+  // AI bark analysis
+  let transcript = '';
+  let mood = '';
+  let recommendation = '';
+  try {
+    const result = await analyzeDogBark(audio_url);
+    transcript = result.transcript;
+    mood = result.mood;
+    recommendation = result.recommendation;
+  } catch (e) {
+    return res.status(500).json({ error: 'AI bark analysis failed' });
+  }
+
+  const { data, error } = await supabase.from('dog_barks').insert([
+    { dog_id: dogId, audio_url, transcript, mood, recommendation }
+  ]).select();
+  if (error) return res.status(500).json({ error: error.message });
+  res.json(data[0]);
+});
 
 // POST /dogs/:dogId/highlights - Add a highlight (auth required)
 router.post('/dogs/:dogId/highlights', invalidateFeedCache, async (req, res) => {
@@ -207,122 +356,6 @@ router.post('/dogs/:dogId/highlights', invalidateFeedCache, async (req, res) => 
     return res.status(400).json({ error: moderation_reason, moderation_status });
   }
   res.json(data[0]);
-});
-
-// GET /dogs/:dogId/highlights - List highlights for a dog
-router.get('/dogs/:dogId/highlights', async (req, res) => {
-  const { dogId } = req.params;
-  const { data, error } = await supabase.from('dog_highlights').select('*').eq('dog_id', dogId);
-  if (error) return res.status(500).json({ error: error.message });
-  res.json(data);
-});
-
-// GET /feed - Get all highlights with dog & owner info (with Redis cache)
-router.get('/feed', async (req, res) => {
-  const offset = parseInt(req.query.offset) || 0;
-  const limit = parseInt(req.query.limit) || 10;
-  const cacheKey = `feed_${offset}_${limit}`;
-  try {
-    const cached = await redis.get(cacheKey);
-    if (cached) return res.json(JSON.parse(cached));
-  } catch (e) {
-    // If Redis fails, continue without cache
-  }
-  const { data, error } = await supabase
-    .from('dog_highlights')
-    .select('*, dog_profiles(*, owner_id)')
-    // .eq('moderation_status', 'approved')
-    .order('created_at', { ascending: false })
-    .range(offset, offset + limit - 1);
-  if (error) {
-    console.error('Error fetching feed:', error);
-    return res.status(500).json({ error: error.message });
-  }
-  try {
-    await redis.setEx(cacheKey, 30, JSON.stringify(data)); // 30s TTL
-  } catch (e) {}
-  res.json(data);
-});
-
-// POST /dogs/:dogId/bark - Upload bark audio and analyze
-router.post('/dogs/:dogId/bark', async (req, res) => {
-  const { dogId } = req.params;
-  const { audio_url } = req.body;
-  if (!audio_url) return res.status(400).json({ error: 'Missing audio_url' });
-
-  // AI bark analysis
-  let transcript = '';
-  let mood = '';
-  let recommendation = '';
-  try {
-    const result = await analyzeDogBark(audio_url);
-    transcript = result.transcript;
-    mood = result.mood;
-    recommendation = result.recommendation;
-  } catch (e) {
-    return res.status(500).json({ error: 'AI bark analysis failed' });
-  }
-
-  const { data, error } = await supabase.from('dog_barks').insert([
-    { dog_id: dogId, audio_url, transcript, mood, recommendation }
-  ]).select();
-  if (error) return res.status(500).json({ error: error.message });
-  res.json(data[0]);
-});
-
-// POST /doggo-api/bark-ai - Analyze dog bark (dummy for now)
-router.post('/bark-ai', async (req, res) => {
-  const { audio_url } = req.body;
-  if (!audio_url) return res.status(400).json({ error: 'Missing audio_url' });
-  const result = await analyzeDogBark(audio_url);
-  res.json(result);
-});
-
-// POST /doggo-api/s3-presigned-url - Get presigned S3 upload URL
-router.post('/s3-presigned-url', async (req, res) => {
-  const { fileName, fileType } = req.body;
-  if (!fileName || !fileType) return res.status(400).json({ error: 'Missing fileName or fileType' });
-  try {
-    const key = `dog_highlights/${Date.now()}_${fileName}`;
-    const command = new PutObjectCommand({
-      Bucket: S3_BUCKET,
-      Key: key,
-      ContentType: fileType,
-      ACL: 'public-read',
-    });
-    const url = await getSignedUrl(s3, command, { expiresIn: 300 });
-    const publicUrl = `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${key}`;
-    res.json({ url, key, publicUrl });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// POST /dogs/login - Dog profile login with owner_id and audio (bark)
-router.post('/dogs/login', upload.single('audio'), async (req, res) => {
-  const { owner_id } = req.body;
-  if (!owner_id || !req.file) {
-    return res.status(400).json({ error: 'Missing owner_id or audio' });
-  }
-  let fingerprint;
-  try {
-    fingerprint = await getBarkFingerprint(req.file.buffer);
-  } catch (e) {
-    return res.status(400).json({ error: 'Failed to analyze bark audio' });
-  }
-  // Find dog profile with matching owner_id and bark_fingerprint
-  const { data: profile, error } = await supabase
-    .from('dog_profiles')
-    .select('*')
-    .eq('owner_id', owner_id)
-    .eq('bark_fingerprint', fingerprint)
-    .single();
-  if (error || !profile) {
-    return res.status(401).json({ error: 'Invalid credentials' });
-  }
-  // Generate a JWT token using the dog profile id as the seed
-  const token = createJwtToken(profile.id);
-  res.json({ token, profile });
 });
 
 function createJwtToken(seed) {

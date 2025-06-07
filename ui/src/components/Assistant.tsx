@@ -16,7 +16,7 @@ const Assistant: React.FC = () => {
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; text: string }[]>([]);
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<Vendor[]>([]);
-  const [minimized, setMinimized] = useState(false);
+  const [minimized, setMinimized] = useState(true);
 
   const handleSend = async (query: string) => {
     setMessages((msgs) => [...msgs, { role: 'user', text: query }]);
@@ -47,7 +47,7 @@ const Assistant: React.FC = () => {
   if (minimized) {
     return (
       <button
-        className="fixed bottom-4 right-4 z-50 bg-yellow-300 hover:bg-yellow-400 text-white rounded-full shadow-2xl p-3 transition flex items-center justify-center"
+        className="fixed bottom-4 right-4 z-50 bg-primary hover:bg-secondary text-white rounded-full shadow-2xl p-3 transition flex items-center justify-center"
         style={{ width: 48, height: 48 }}
         onClick={() => setMinimized(false)}
         title="Open Doggo Assistant"
@@ -58,9 +58,9 @@ const Assistant: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 w-full max-w-xs bg-white rounded-2xl shadow-2xl border border-yellow-100 p-4 z-50 animate-fade-in">
+    <div className="fixed bottom-4 right-4 w-full max-w-xs bg-white rounded-2xl shadow-2xl border border-primary-100 p-4 z-50 animate-fade-in">
       <button
-        className="absolute top-2 right-2 text-yellow-300 hover:text-yellow-500 text-xl font-bold focus:outline-none"
+        className="absolute top-2 right-2 text-primary-300 hover:text-primary-500 text-xl font-bold focus:outline-none"
         onClick={() => setMinimized(true)}
         title="Minimize"
         aria-label="Minimize Assistant"
@@ -68,13 +68,13 @@ const Assistant: React.FC = () => {
       >
         –
       </button>
-      <div className="font-bold text-yellow-500 mb-2 flex items-center gap-2">
+      <div className="font-bold text-primary-500 mb-2 flex items-center gap-2">
         <span role="img" aria-label="dog">🐶</span> Doggo Assistant
       </div>
       <div className="h-32 overflow-y-auto text-sm mb-2">
         {messages.map((msg, i) => (
           <div key={i} className={msg.role === 'user' ? 'text-right text-indigo-700 mb-1' : 'text-left text-gray-700 mb-1'}>
-            <span className={msg.role === 'user' ? 'bg-indigo-50 px-2 py-1 rounded-lg inline-block' : 'bg-yellow-50 px-2 py-1 rounded-lg inline-block'}>
+            <span className={msg.role === 'user' ? 'bg-indigo-50 px-2 py-1 rounded-lg inline-block' : 'bg-primary-50 px-2 py-1 rounded-lg inline-block'}>
               {msg.text}
             </span>
           </div>
@@ -87,7 +87,7 @@ const Assistant: React.FC = () => {
             <a
               key={v.id}
               href={`/vendor/${v.id}`}
-              className="block bg-yellow-100 hover:bg-yellow-200 text-yellow-800 rounded-lg px-3 py-2 mb-1 text-sm font-semibold transition"
+              className="block bg-primary-100 hover:bg-primary-200 text-primary-800 rounded-lg px-3 py-2 mb-1 text-sm font-semibold transition"
             >
               {v.name} <span className="text-xs text-gray-500">({v.city}, {v.category})</span>
             </a>
@@ -109,7 +109,7 @@ const Assistant: React.FC = () => {
               label=""
               name="input"
               placeholder="Ask for a pet service..."
-              className="flex-1 border border-yellow-200 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="flex-1 border border-primary-200 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400"
               list="assistant-prompts"
               autoComplete="off"
             />
@@ -118,7 +118,7 @@ const Assistant: React.FC = () => {
             </datalist>
             <button
               type="submit"
-              className="bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg px-3 py-1 font-bold text-sm transition"
+              className="bg-primary-400 hover:bg-primary-500 text-white rounded-lg px-3 py-1 font-bold text-sm transition"
               disabled={loading || isSubmitting}
             >
               Ask

@@ -83,7 +83,7 @@ const VendorList = ({ selectedCity, searchQuery }: VendorListProps) => {
     <div>
       <div className="flex flex-wrap gap-2 mb-4">
         <button
-          className={`px-3 py-1 rounded border font-medium transition ${selectedCategory === '' ? 'bg-yellow-500 text-white border-yellow-500' : 'bg-white text-yellow-700 border-yellow-300 hover:bg-yellow-100'}`}
+          className={`px-3 py-1 rounded border font-medium transition ${selectedCategory === '' ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-secondary hover:bg-yellow-100'}`}
           onClick={() => setSelectedCategory('')}
         >
           All Services
@@ -91,17 +91,19 @@ const VendorList = ({ selectedCity, searchQuery }: VendorListProps) => {
         {serviceCategories.map(category => (
           <button
             key={category}
-            className={`px-3 py-1 rounded border font-medium transition ${selectedCategory === category ? 'bg-yellow-500 text-white border-yellow-500' : 'bg-white text-yellow-700 border-yellow-300 hover:bg-yellow-100'}`}
+            className={`px-3 py-1 rounded border font-medium transition ${selectedCategory === category ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-secondary hover:bg-yellow-100'}`}
             onClick={() => setSelectedCategory(category)}
           >
             {category}
           </button>
         ))}
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="w-full max-h-[500px] p-4 overflow-y-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredVendors.map(vendor => (
           <VendorCard key={vendor.id} {...vendor} />
         ))}
+        </div>
       </div>
     </div>
   )

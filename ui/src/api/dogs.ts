@@ -1,4 +1,5 @@
 import { BASE_URL } from './index';
+import { getAuthToken } from './utils';
 
 export async function createDogProfile(profile: {
   owner_id: string;
@@ -30,14 +31,21 @@ export async function createDogProfile(profile: {
 }
 
 export async function getDogProfiles(owner_id?: string) {
-  const url = owner_id ? `${BASE_URL}/doggo-api/dogs?owner_id=${owner_id}` : `${BASE_URL}/doggo-api/dogs`;
+  const url = owner_id ? `${BASE_URL}/dogs?owner_id=${owner_id}` : `${BASE_URL}/dogs`;
   const res = await fetch(url);
   if (!res.ok) throw new Error('Failed to fetch dog profiles');
   return res.json();
 }
 
-export async function getDogProfile(id: string) {
-  const res = await fetch(`${BASE_URL}/doggo-api/dogs/${id}`);
+export async function getDogProfile(id?: string) {
+  const headers: Record<string, string> = {};
+  const token = getAuthToken();
+  if (!token) throw new Error('No authentication token found');
+  headers['Authorization'] = `Bearer ${token}`;
+  const res = await fetch(`${BASE_URL}/dogs`, {
+    headers,
+    method: 'GET',
+  });
   if (!res.ok) throw new Error('Failed to fetch dog profile');
   return res.json();
 }

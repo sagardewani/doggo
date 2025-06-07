@@ -16,7 +16,7 @@ const AuthSubmitButton: React.FC<AuthSubmitButtonProps> = ({
   className = '',
 }) => (
   <button
-    className={`w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 rounded-lg shadow-lg text-lg transition disabled:opacity-60 ${className}`}
+    className={`w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 rounded-lg shadow-lg text-lg transition disabled:opacity-60 ${className}`}
     type="submit"
     disabled={loading || isSubmitting}
   >

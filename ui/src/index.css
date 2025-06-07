@@ -21,7 +21,6 @@ a {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -53,3 +52,16 @@ h1 {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/*
+  Tailwind v4 Theming: Define your theme colors here using CSS variables.
+  You can now update your theme in one place and use Tailwind's new color tokens!
+*/
+
+/* Example usage in custom CSS: */
+/*
+.btn-primary {
+  background: var(--theme-primary);
+  color: #fff;
+}
+*/

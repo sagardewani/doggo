@@ -1,9 +1,12 @@
 import { BASE_URL } from './index';
+import { getAuthToken } from './utils';
 
-export async function getDogFeed(offset = 0, limit = 10, token?: string) {
+export async function getDogFeed(offset = 0, limit = 10) {
   const headers: Record<string, string> = {};
-  if (token) headers['Authorization'] = `Bearer ${token}`;
-  const res = await fetch(`${BASE_URL}/feed?offset=${offset}&limit=${limit}`, {
+  const token = getAuthToken();
+  if (!token) throw new Error('No authentication token found');
+  headers['Authorization'] = `Bearer ${token}`;
+  const res = await fetch(`${BASE_URL}/dogs/feed?offset=${offset}&limit=${limit}`, {
     headers,
   });
   if (!res.ok) throw new Error('Failed to fetch dog feed');

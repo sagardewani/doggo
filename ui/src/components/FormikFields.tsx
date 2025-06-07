@@ -71,3 +71,5 @@ export const FormikFileInput: React.FC<FormikFileInputProps> = ({ label, ...prop
     </div>
   );
 };
+
+// Refactored to use theme color classes: text-primary, bg-primary, border-primary, highlight, etc.

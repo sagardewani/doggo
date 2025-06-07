@@ -11,7 +11,7 @@ const AddDogHighlight: React.FC = () => {
   const dog = profiles[0]; // Use the first dog profile by default
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] bg-gradient-to-br from-gray-900 to-gray-700">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] max-w-md mx-auto p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 border border-gray-200 flex flex-col justify-center animate-fade-in">
         <h1 className="text-2xl font-bold text-yellow-700 mb-2 text-center">Create a Highlight</h1>
         <p className="text-gray-600 mb-4 text-center">Share a fun moment! Upload or record a video, audio, or image and add a playful caption.</p>

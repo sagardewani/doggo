@@ -37,12 +37,11 @@ const CitySelector = ({ selectedCity, onSelectCity, setSearchQuery }: CitySelect
   }
 
   return (
-    <div className="flex justify-between mx-auto w-full">
-      <div className="flex flex-col items-start gap-2 my-4 bg-white shadow rounded-lg p-4">
-        <label htmlFor="city-select" className="font-medium text-gray-700">Select City:</label>
+    <div className="flex mx-auto w-full bg-card-primary p-4 rounded-lg shadow-lg gap-4">
+      <div className="flex flex-col items-center gap-2">
         <select
           id="city-select"
-          className="border border-gray-300 rounded px-3 py-2 min-w-[180px]"
+          className="border border-primary rounded px-3 py-2 min-w-[180px]"
           value={selectedCity || ''}
           onChange={e => onSelectCity(e.target.value || null)}
         >
@@ -51,15 +50,13 @@ const CitySelector = ({ selectedCity, onSelectCity, setSearchQuery }: CitySelect
             <option key={city.name} value={city.name}>{city.name}</option>
           ))}
         </select>
-        {error && <span className="text-xs text-red-500">{error}</span>}
       </div>
-      <div className="flex flex-col items-start gap-2 my-4 bg-white shadow rounded-lg p-4 w-full">
-        <label htmlFor="search-input" className="font-medium text-gray-700">Search:</label>
+      <div className="flex items-center gap-2 flex-1">
         <input
           id="search-input"
           type="text"
           placeholder="Search vendors..."
-          className="border border-gray-300 rounded px-3 py-2 w-full"
+          className="border border-primary rounded px-3 py-2 w-full"
           onChange={e => setSearchQuery ? setSearchQuery(e.target.value) : null}
         />
       </div>

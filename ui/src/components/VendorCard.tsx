@@ -43,18 +43,18 @@ const VendorCard = ({
       <img
         src={profile_photo}
         alt={name}
-        className="w-20 h-20 rounded-full object-cover border border-yellow-200"
+        className="w-20 h-20 rounded-full object-cover border border-primary"
       />
       <div className="flex-1 w-full">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full">
-          <Link to={`/vendor/${id}`} className="text-lg font-bold text-yellow-700 mb-1 hover:underline">
+          <Link to={`/vendor/${id}`} className="text-lg font-bold text-primary mb-1 hover:underline">
             {name}
           </Link>
           <span className="text-sm text-gray-500">{locality}</span>
         </div>
         <div className="flex flex-wrap gap-2 my-2">
           {services_provided.map(service => (
-            <span key={service} className="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-medium">
+            <span key={service} className="bg-tag text-dark px-2 py-1 rounded text-xs font-medium">
               {service}
             </span>
           ))}
@@ -63,7 +63,7 @@ const VendorCard = ({
           <span className="font-semibold text-gray-700">{formattedPriceRange}</span>
         </div>
         <div className="flex gap-3 mt-3">
-          <a href={phone} className="flex items-center gap-1 px-3 py-1 bg-yellow-200 text-yellow-800 rounded hover:bg-yellow-300 transition" title="Call">
+          <a href={phone} className="flex items-center gap-1 px-3 py-1 bg-primary text-white rounded hover:bg-opacity-90 transition" title="Call">
             <FaPhoneAlt /> Call
           </a>
           <a href={whatsapp_link || whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded hover:bg-green-200 transition" title="WhatsApp">
